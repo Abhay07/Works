@@ -1,0 +1,88 @@
+<html>
+<head>
+<style>
+ul.spokes{position:relative;left:70px;top:-10px;}
+ul.spokes li{width:1;height:210px;background:#D6D6D6;display:block;position:absolute;}
+ul.chain-spoke{position:relative;list-style:none;top:-16px;left:-2px;z-index:0;}
+ul.chain-spoke li{width:4px;height:80px;background:#666666;position:absolute;}
+.chain{-webkit-animation:chainanim 0.2s infinite linear;}
+@-webkit-keyframes chainanim
+{
+0%{background: -webkit-repeating-linear-gradient(left,#666666 20px,#666666 25px, white 25px,white 30px);}
+50%{background: -webkit-repeating-linear-gradient(left,white 20px,white 25px, #666 25px,#666 30px);}
+100%{background: -webkit-repeating-linear-gradient(left,#666666 20px,#666666 25px, white 25px,white 30px);}
+}
+
+@-webkit-keyframes rotateanim
+{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+@-webkit-keyframes pedalanim
+{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(-360deg);}
+}
+
+@-webkit-keyframes cyclemove
+{
+0%{left:-1800px;}
+100%{left:2000px;}
+}
+
+.cycle-wheel{-webkit-animation:rotateanim 1.5s infinite linear}
+.chain-cover{-webkit-animation:rotateanim 1.5s infinite linear}
+.peddal{-webkit-animation:rotateanim 1.5s infinite linear}
+.pedal-bar{-webkit-animation:pedalanim 1.5s infinite linear}
+.complete-cycle{-webkit-animation:cyclemove 4s infinite linear}
+
+</style>
+</head>
+<body style="overflow:hidden;">
+<div class="complete-cycle" style="width:800px;height:400px;bord/er:1px solid black;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;">
+	<div class="cycle-wheel" style="width:220px;height:220px;border-radius:50%;border:solid 5px #AAAAAA;position:relative;top:160px;float:left;z-index:-2">
+	<ul class="spokes"><li style="transform:rotate(0deg);"></li><li style="transform:rotate(30deg);"></li><li style="transform:rotate(60deg);"></li><li style="transform:rotate(90deg);"></li><li style="transform:rotate(120deg);"></li><li style="transform:rotate(150deg);"></li></ul>
+	<div style="width:205px;height:205px;border:1px solid red;position:absolute;top:0px;bottom:0px;left:0;right:0;margin:auto;border:solid 4px #EF9058;border-radius:50%;">
+	<div style="width:28px;height:24px;position:absolute;top:0px;bottom:0px;left:0;right:0;margin:auto;border:dotted 5px #767676;border-radius:50%;">
+	<div style="width:8px;height:8px;position:absolute;top:0px;left:0px;bottom:0px;right:0px;margin:auto;background:#767676;border-radius:50%;"></div>
+	<div style="width:14px;height:14px;position:absolute;top:0px;left:0px;bottom:0px;right:0px;margin:auto;border:solid 7px #767676;border-radius:50%;"></div>
+	</div>
+	</div>
+	</div>
+	
+	<div class="cycle-wheel" style="width:220px;height:220px;border-radius:50%;border:solid 5px #AAAAAA;position:relative;top:160px;left:200px;float:left">
+	<ul class="spokes"><li style="transform:rotate(0deg);"></li><li style="transform:rotate(30deg);"></li><li style="transform:rotate(60deg);"></li><li style="transform:rotate(90deg);"></li><li style="transform:rotate(120deg);"></li><li style="transform:rotate(150deg);"></li></ul>
+	<div style="width:205px;height:205px;border:1px solid red;position:absolute;top:0px;bottom:0px;left:0;right:0;margin:auto;border:solid 4px #EF9058;border-radius:50%;">
+	<div style="width:15px;height:15px;position:absolute;top:0px;bottom:0px;left:0;right:0;margin:auto;border:solid 8px #767676;border-radius:50%;">
+	<div style="width:9px;height:9px;position:absolute;top:0px;left:0px;bottom:0px;right:0px;margin:auto;background:#767676;border-radius:50%;"></div>
+	</div>
+	</div>
+	</div>
+	
+	<div class="chain-cover" style="width:80px;height:80px;border:4px dotted #666666;border-radius:100%;position:relative;left:35%;top:55%;">
+	<ul class="chain-spoke"><li style="transform:rotate(0deg);"></li><li style="transform:rotate(60deg);"></li><li style="transform:rotate(120deg);"></li></ul>
+	<div style="width:70px;height:70px;position:absolute;top:0px;bottom:0px;left:0;right:0;margin:auto;border:solid 5px #666666;border-radius:50%;z-index:1;display:block;"></div>
+	<div style="width:20px;height:20px;position:absolute;top:0px;bottom:0px;left:0;right:0;margin:auto;border:solid 6px #666666;background:white;border-radius:50%;z-index:1;display:block;">
+	<div style="width:16px;height:16px;position:absolute;top:0px;bottom:0px;left:0;right:0;margin:auto;background:#666666;border-radius:50%;"></div>
+	</div>
+	</div>
+	<div class="chain" style="width:200px;height:4px;background: -webkit-repeating-linear-gradient(left,#666666 20px,#666666 25px, white 25px,white 30px);position:relative;top:33.5%;left:14%;transform-origin:100% 50%;transform:rotate(-10deg);z-index:2"></div>
+	<div class="chain" style="width:200px;height:4px;background: -webkit-repeating-linear-gradient(left,#666666 20px,#666666 25px, white 25px,white 30px);position:relative;top:53%;left:14%;transform-origin:100% 50%;transform:rotate(4deg)"></div>
+	<div style="width:10px;height:210px;background:#5E999B;position:absolute;left:310px;top:50px;transform-origin:50% 100%;transform:rotate(-40deg);z-index:-1"></div>
+	<div style="width:10px;height:250px;background:#5E999B;position:absolute;left:530px;top:14px;transform-origin:50% 100%;transform:rotate(-40deg);"></div>
+	<div style="width:10px;height:152px;background:#5E999B;position:absolute;left:118px;top:105px;transform-origin:50% 100%;transform:rotate(40deg);"></div>
+	<div style="height:10px;width:190px;background:#5E999B;position:absolute;left:122px;top:270px;transform-origin:0% 50%;transform:rotate(-4deg);z-index:-1"></div>
+	<div style="height:10px;width:205px;background:#5E999B;position:absolute;left:210px;top:140px;transform-origin:0% 50%;transform:rotate(-7deg);z-index:-1"></div>
+	<div style="height:10px;width:70px;background:#5E999B;position:absolute;left:371px;top:70px;transf/orm-origin:0% 50%;transfo/rm:rotate(-7deg);z-index:-1;border-radius:5px 0px 0px 5px;"></div>
+	<div style="height:40px;width:40px;backgr/ound:#5E999B;position:absolute;left:430px;top:70px;transf/orm-origin:0% 50%;border:9px solid #666;border-radius:100%;border-left-size:0px;border-left-color:transparent;border-top-left-radius:0;"></div>
+	<div style="width:10px;height:160px;background:#5E999B;position:absolute;left:320px;top:100px;transform-origin:50% 100%;transform:rotate(40deg);z-index:-2;"></div>
+	<div style="width:0px;height:0px;border-color:#666 transparent transparent #666;border-width:15px 0px 15px 80px;border-radius:50%;border-style:solid;position:absolute;left:140px;top:80px;"></div>
+	<div class="peddal" style="bor/der:solid 1px black;width:35px;height:160px;position:absolute;top:184px;left:306px">
+	<div style="width:6px;height:140px;background:#666;position:absolute;z-index:-1;left:15px;"></div>
+	<div class="pedal-bar" style="width:35px;height:10px;background:#666;position:absolute;z-index:-1;"></div>
+	<div class="pedal-bar" style="width:35px;height:10px;background:#666;position:absolute;z-index:-1;top:140px;"></div>
+	</div>
+</div>
+</body>
+</html>
