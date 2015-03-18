@@ -1,0 +1,99 @@
+<html>
+<head>
+<style>
+.wrapper{width:400px;height:400px;position:absolute;top:0px;left:0px;right:0px;bottom:0px;margin:auto;border:1px solid black;}
+.box1{width:200px;height:200px;position:absolute;top:0px;left:0px;right:0px;bottom:0px;margin:auto;border:1px solid black;perspective:400px;}
+.box2-left{-webkit-animation:leftface 6s infinite;}
+.box2-right{-webkit-animation:rightface 6s infinite;}
+.box2-back{-webkit-animation:backface 6s infinite;}
+.box2-front{-webkit-animation:frontface 6s infinite;}
+.box1-left{-webkit-animation:leftface1 6s infinite;}
+.box1-right{-webkit-animation:rightface1 6s infinite;}
+.box1-back{-webkit-animation:backface1 6s infinite;}
+.box1-front{-webkit-animation:frontface1 6s infinite;}
+
+@-webkit-keyframes leftface
+{
+0%{transform:rotateY(90deg)}
+33%{transform:rotateY(90deg) rotateX(90deg)}
+66%{transform:rotateY(90deg) rotateX(90deg)}
+67%{transform:rotateY(90deg)}
+100%{transform:rotateY(90deg) rotateX(90deg)}
+}
+@-webkit-keyframes rightface
+{
+0%{transform:translateX(180px) rotateY(90deg)}
+33%{transform:translateX(180px) rotateY(90deg) rotateX(-90deg)}
+66%{transform:translateX(180px) rotateY(90deg) rotateX(-90deg)}
+67%{transform:translateX(180px) rotateY(90deg)}
+100%{transform:translateX(180px) rotateY(90deg) rotateX(-90deg)}
+}
+@-webkit-keyframes backface
+{
+0%{transform:translateZ(-180px)}
+33%{transform:translateZ(-180px) rotateX(90deg)}
+66%{transform:translateZ(-180px) rotateX(90deg)}
+67%{transform:translateZ(-180px)}
+100%{transform:translateZ(-180px) rotateX(90deg)}
+}
+@-webkit-keyframes frontface
+{
+33%{transform:rotateX(-90deg)}
+66%{transform:rotateX(-90deg)}
+67%{transform:rotateX(0deg)}
+100%{transform:rotateX(-90deg)}
+}
+
+@-webkit-keyframes leftface1
+{
+33%{transform:rotateY(90deg)}
+66%{transform:rotateY(90deg) rotateX(90deg);z-index:1;}
+100%{transform:rotateY(90deg) rotateX(90deg);z-index:1}
+}
+@-webkit-keyframes rightface1
+{
+33%{transform:translateX(180px) rotateY(90deg)}
+66%{transform:translateX(180px) rotateY(90deg) rotateX(-90deg);z-index:1}
+100%{transform:translateX(180px) rotateY(90deg) rotateX(-90deg);z-index:1;}
+}
+@-webkit-keyframes backface1
+{
+33%{transform:translateZ(-180px)}
+66%{transform:translateZ(-180px) rotateX(90deg);z-index:1}
+100%{transform:translateZ(-180px) rotateX(90deg);z-index:1}
+}
+@-webkit-keyframes frontface1
+{
+33%{transform:rotateX(0deg)}
+66%{transform:rotateX(-90deg);z-index:1}
+100%{transform:rotateX(-90deg);z-index:1}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="box1">
+<div class="box0-left" style="width:180px;height:180px;background:white;transform-origin:0% 100%;transform:rotateY(90deg);position:absolute;top:0;left:0;border:1px solid black;"></div>
+<div class="box0-back" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:translateZ(-180px);border:1px solid black;"></div>
+<div class="box0-right" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:0% 100%;transform:translateX(180px) rotateY(90deg);border:1px solid black;"></div>
+<div class="box0-bottom" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:rotateX(90deg);border:1px solid black;"></div>
+<div class="box1-left" style="width:180px;height:180px;background:red;transform-origin:0% 100%;transform:rotateY(90deg);position:absolute;top:0;left:0;border:1px solid black;"></div>
+<div class="box1-back" style="width:180px;height:180px;background:green;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:translateZ(-180px);border:1px solid black;"></div>
+<div class="box1-front" style="width:180px;height:180px;background:yellow;position:absolute;top:0;left:0;transform-origin:50% 100%;border:1px solid black;"></div>
+<div class="box1-right" style="width:180px;height:180px;background:black;position:absolute;top:0;left:0;transform-origin:0% 100%;transform:translateX(180px) rotateY(90deg);border:1px solid black;"></div>
+<div class="box1-bottom" style="width:180px;height:180px;background:gray;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:rotateX(90deg);border:1px solid black;"></div>
+
+<div class="box2-left" style="width:180px;height:180px;background:white;transform-origin:0% 100%;transform:rotateY(90deg);position:absolute;top:0;left:0;border:1px solid black;z-index:0"></div>
+<div class="box2-back" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:translateZ(-180px);border:1px solid black;z-index:0"></div>
+<div class="box2-front" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;border:1px solid black;z-index:0"></div>
+<div class="box2-right" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:0% 100%;transform:translateX(180px) rotateY(90deg);border:1px solid black;z-index:0"></div>
+<div class="box2-bottom" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:rotateX(90deg);border:1px solid black;z-index:1"></div>
+<div class="box3-left" style="width:180px;height:180px;background:white;transform-origin:0% 100%;transform:rotateY(90deg) rotateX(90deg);position:absolute;top:0;left:0;border:1px solid black;"></div>
+<div class="box3-back" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:translateZ(-180px) rotateX(90deg);border:1px solid black;"></div>
+<div class="box3-front" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;border:1px solid black;transform:rotateX(-90deg);"></div>
+<div class="box3-right" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:0% 100%;transform:translateX(180px) rotateY(90deg) rotateX(-90deg);border:1px solid black;"></div>
+<div class="box3-bottom" style="width:180px;height:180px;background:white;position:absolute;top:0;left:0;transform-origin:50% 100%;transform:rotateX(-90deg);border:1px solid black;"></div>
+</div>
+</div>
+</body>
+</html>
