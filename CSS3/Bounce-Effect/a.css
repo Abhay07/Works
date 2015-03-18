@@ -1,0 +1,11 @@
+body{background:#FF7735;}
+.container{width:25px;height:200px;margin:auto;bo/rder:solid 1px black;text-align:center;position:relative;top:40%;-webkit-transform-origin:50% 100%;-webkit-animation:ballanimation 5s 1;}
+.ball{background:url('ball.png');width:25px;height:25px;margin:auto;}
+
+@-webkit-keyframes ballanimation
+{
+0%{-webkit-transform:rotate(-90deg);}
+50%{-webkit-transform:rotate(90deg);}
+51%{-webkit-transform:translate(375px) rotate(-90deg);}
+100%{-webkit-transform:translate(375px) rotate(90deg);}
+}
