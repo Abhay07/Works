@@ -1,0 +1,15 @@
+body{background:#333;}
+.content{bord/er:solid 1px white;position:relative;width:500px;height:100px;margin:auto;top:300px;}
+.boundary{width:100px;height:100px;margin:auto;bor/der:solid 1px white;position:relative;display:block;float:left;}
+.pulse-shadow{width:40px;height:40px;border-radius:100%;background-color:transparent;box-shadow:0px 0px 15px #33ffbb;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto}
+.boundary:first-child .pulse-shadow{-webkit-animation:pulseanimation 2s infinite;}
+.boundary:nth-child(2) .pulse-shadow{-webkit-animation:pulseanimation 2s infinite 0.2s;}
+.boundary:nth-child(3) .pulse-shadow{-webkit-animation:pulseanimation 2s infinite 0.4s;}
+.boundary:nth-child(4) .pulse-shadow{-webkit-animation:pulseanimation 2s infinite 0.6s;}
+.boundary:nth-child(5) .pulse-shadow{-webkit-animation:pulseanimation 2s infinite 0.8s;}
+.dot{width:20px;height:20px;background-color:#33ffbb;border-radius:100%;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto}
+@-webkit-keyframes pulseanimation
+{
+0%{width:20px;height:20px;to/p:300px;box-shadow:0px 0px 15px rgba(51,255,187,1)}
+100%{width:100px;height:100px;to/p:260px;box-shadow:0px 0px 15px rgba(51,255,187,0)}
+}
