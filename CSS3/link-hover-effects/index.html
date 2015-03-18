@@ -1,0 +1,120 @@
+<html>
+<head>
+<style>
+body{margin:0;}
+.nav{width:80%;margin:auto;height:60px;margin-top:70px;bor/der:1px solid black;}
+
+.nav.nav1 a span{text-decoration:none;width:20%;height:100%;margin-right:4%;float:left;text-align:center;line-height:60px;font-size:25px;font-family:Arial;background:#29A2EE;color:white;position:relative;transform-style:preserve-3d;transform-origin:50% 0%;transition:transform 0.3s;box-shadow:0px 0px 7px #0B5582;}
+
+.nav.nav1 a span::before{content:'LINK1';position:absolute;width:100%;height:100%;color:white;top:0;left:0;transform-origin:50% 0%;transition:background 0.3s;transform:translateY(60px) rotateX(-90deg);background:#0965a0;transform-style:preserve-3d;box-shadow:0px 0px 7px #0B5582;transition:background 0.5s;}
+
+.nav.nav1 span:hover{transform:rotateX(90deg)}
+.nav.nav1 span:hover::before{background:#29A2EE;}
+
+.nav.nav2{height:22px;overflow:hidden;line-height:25px;}
+.nav.nav2 a span{text-decoration:none;width:20%;height:50%;margin-right:4%;float:left;text-align:center;line-height:22px;font-size:25px;font-family:Arial;color:white;position:relative;top:0px;transition:top 0.3s;}
+.nav.nav2 a span:after{content:'LINK1';position:absolute;width:100%;height:100%;left:0px;top:30px;font-weight:bold}
+.nav.nav2 a span:hover{top:-30px}
+
+.nav.nav3 a{text-decoration:none;width:20%;height:100%;margin-right:4%;float:left;text-align:center;line-height:60px;font-size:25px;font-family:Arial;color:white;position:relative;bo/rder:1px solid black;overflow:hidden;}
+
+.nav.nav3 a span{width:307px;height:60px;background:white;line-height:60px;position:absolute;left:0;top:0;color:white;bor/der:1px solid red;transition:left 0.5s;background:#0F7C67;}
+
+.nav.nav3 a span::before{content:'LINK1';position:absolute;width:100%;height:100%;color:#0F7C67;top:0;left:-307px;background:white;transform-style:preserve-3d;}
+.nav.nav3 a:hover span{left:307px;}
+
+.nav.nav4{height:60px;overflow:hidden;line-height:50px;borde/r:1px solid white;width:30%;}
+.nav.nav4 a span{text-decoration:none;width:auto;height:100%;margin-right:7%;float:left;text-align:center;line-height:50px;font-size:25px;font-family:Arial;color:white;position:relative;top:0px;border-top:1px solid #0972B4;color:#0972B4}
+.nav.nav4 a span:after{content:'LINK1';position:absolute;height:50px;left:0px;top:0px;border-bottom:1px solid white;color:white;width:0%;overflow:hidden;transition:width 0.3s;font-size:25px; }
+.nav.nav4 a span:hover:after{width:100%}
+
+.nav.nav5{height:50px;overflow:hidden;line-height:50px;b/order:1px solid white;}
+.nav.nav5 a span{text-decoration:none;width:20%;height:50%;margin-right:4%;float:left;text-align:center;line-height:50px;font-size:25px;font-family:Arial;color:#6f8686;;position:relative;top:0px;transition:top 0.3s;}
+.nav.nav5 a span:after{content:'LINK1';position:absolute;width:100%;height:100%;left:0px;top:0px;transform-origin:100% 50%;-webkit-transform:scale(1.1) translate(30px,-10px) rotateY(4deg);color:white;opacity:0;transition:transform 0.2s,opacity 0.2s;}
+.nav.nav5 a span:hover:after{-webkit-transform:scale(1) translate(0px,0px) rotateY(0deg);opacity:1;}
+
+.nav.nav6 a span{text-decoration:none;width:20%;height:100%;margin-right:4%;float:left;text-align:center;line-height:60px;font-size:25px;font-family:Arial;background:#E35041;color:white;position:relative;transform-style:preserve-3d;transform-origin:50% 50%;transition:transform 0.3s,background 0.3s;box-shadow:0px 0px 7px #862C22;}
+
+.nav.nav6 a span::before{content:'LINK1';position:absolute;width:100%;height:100%;color:white;top:0;left:0;transform-origin:0% 50%;transform:translateX(100%) rotateY(90deg);background:#CD4436;transform-style:preserve-3d;box-shadow:0px 0px 7px #862C22;transition:background 0.6s;}
+
+.nav.nav6 span:hover{transform:translateX(-50%) rotateY(-90deg);background:#CD4436;}
+.nav.nav6 span:hover::before{background:#E35041;}
+
+.nav.nav7 a span{text-decoration:none;width:20%;height:100%;margin-right:4%;float:left;text-align:center;line-height:60px;font-size:25px;font-family:Arial;background:#587285;color:white;position:relative;transform-style:preserve-3d;transform-origin:50% 50%;transition:transform 0.3s,background 0.3s;z-index:0;box-shadow:inset 0px 4px #2F4351;}
+
+.nav.nav7 a span:before{content:'LINK1';position:absolute;width:100%;height:100%;color:#587285;top:0;left:0;transform-origin:50% 0%;transform:rotateX(270deg);background:white;transform-style:preserve-3d;transition:transform 0.8s;}
+
+.nav.nav7 a span:hover:before{-webkit-transform:rotateX(0deg);}
+
+
+
+</style>
+</head>
+<body>
+<div class="section1" style="width:100%;height:200px;border:1px solid black;background:#0E83CD">
+<div class="nav nav1">
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+</div>
+</div>
+
+<div class="section2" style="width:100%;height:200px;border:1px solid black;background:#CD4436;">
+<div class="nav nav2">
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+</div>
+</div>
+
+<div class="section3" style="width:100%;height:200px;border:1px solid black;background:#16A085;">
+<div class="nav nav3">
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+</div>
+</div>
+
+<div class="section4" style="width:100%;height:200px;border:1px solid black;background:#0E83CD;">
+<div class="nav nav4">
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+</div>
+</div>
+
+<div class="section5" style="width:100%;height:200px;border:1px solid black;background:#AAB7B7;">
+<div class="nav nav5">
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+</div>
+</div>
+
+<div class="section6" style="width:100%;height:200px;border:1px solid black;background:#CD4436;">
+<div class="nav nav6">
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+</div>
+</div>
+
+<div class="section7" style="width:100%;height:200px;border:1px solid black;background:#435A6B;">
+<div class="nav nav7">
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+<a href="#"><span>LINK1</span></a>
+</div>
+</div>
+
+
+
+</body>
+</html>
