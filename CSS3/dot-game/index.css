@@ -1,0 +1,17 @@
+body{font-size:25px}
+.dots{width:30px;height:30px;background-color:red;background-image:url('bg.png');backgroud-size:100% 100%;-webkit-animation:dotanimation 2s infinite;}
+#scoredisplay{position:absolute;display:none;width:60px;height:60px;text-align:center;bor/der:1px solid black;line-height:60px;font-size:40px;-webkit-animation:scoreanimation 1s 1;width:70px;height:30px;line-height:30px;}
+#timediv{position:absolute;right:10px;top:10px;width:120px;height:30px;line-height:30px;text-align:center}
+button{position:absolute;right:140px;top:10px;width:70px;height:30px}
+
+@-webkit-keyframes dotanimation
+{
+50%{-webkit-transform:scale(2);opacity:0.2}
+100%{-webkit-transform:scale(1);opacity:1}
+
+}
+
+@-webkit-keyframes scoreanimation
+{
+100%{opacity:0.2}
+}
