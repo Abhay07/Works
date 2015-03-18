@@ -1,9 +1,29 @@
 <html>
 <head>
 <style>
+body{background:#FF6F6F;}
+.tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(-45deg);color:white;}
+.tag a{text-decoration:none;color:white;}
 .hair-thread:after{content:'';width:60px;height:70px;background:#FFE6F2;position:absolute;border-top-left-radius:45px 80px;right:0px;}
-.eyes::after{content:'';position:absolute;width:20px;height:20px;background:white;border-radius:50%;top:4px;left:8px;}
+.eyes::after{content:'';position:absolute;width:20px;height:20px;background:white;border-radius:50%;top:4px;left:8px;-webkit-animation:eyeballanim 1s infinite ease-in}
 .eyes{overflow:hidden;-webkit-animation:eyesanim 1s infinite ease-in}
+.mouth{-webkit-animation:mouthanim 1s infinite ease-in}
+.info{width:1000px;hei/ght:200px;margin:auto;display:block;text-align:center;position:relative;top:40px;font-size:28px;color:white;}
+
+@-webkit-keyframes mouthanim
+{
+0%{height:60px;}
+50%{height:40px;}
+100%{height:60px;}
+}
+
+@-webkit-keyframes eyeballanim
+{
+0%{top:4px;}
+50%{top:-8.5px;}
+100%{top:4px;}
+}
+
 @-webkit-keyframes eyesanim
 {
 0%{height:30px;}
@@ -13,7 +33,9 @@
 </style>
 </head>
 <body>
-<div class="wrapper" style="width:500px;height:500px;border:1px solid black;position:absolute;margin:auto;top:0;right:0;left:0;bottom:0;">
+<div class="info">This has been created entirely with CSS3. No images has been used.</div>
+<div class="tag"><a href="http://www.abhaysrivastav.org">CREATED BY ABHAY SRIVASTAV</a></div>
+<div class="wrapper" style="width:500px;height:500px;bo/rder:1px solid black;position:absolute;margin:auto;top:0;right:0;left:0;bottom:0;">
 <div style="width:300px;height:300px;background:#FFE6F2;margin:auto;position:relative;top:150px;border-radius:0px 0px 40% 40%;"></div>
 <div class="hair-up" style="width:300px;height:100px;background:black;margin:auto;position:absolute;top:50px;left:100px;border-radius:50% 100% 0px 0px;">
 <div class="hair-thread" style="width:60px;height:70px;background:black;position:absolute;top:100px;left:0px;"></div>
@@ -21,7 +43,7 @@
 </div>
 <div class="eyes" style="width:40px;height:30px;background:black;border-radius:50%;position:absolute;top:220px;left:150px"></div>
 <div class="eyes" style="width:40px;height:30px;background:black;border-radius:50%;position:absolute;top:220px;right:150px"></div>
-<div style="width:120px;height:40px;background:black;position:absolute;left:190px;top:350px;border-radius:0px 0px 60px 60px;"></div>
+<div class="mouth" style="width:120px;height:40px;background:black;position:absolute;left:190px;top:350px;border-radius:0px 0px 60px 60px;"></div>
 </div>
 </body>
 </html>
