@@ -1,0 +1,91 @@
+<html>
+<head>
+<link rel="stylesheet" href="index.css" />
+<script src="../../jquery.js"></script>
+</head>
+<body>
+<button>Restart</button>
+<div id="scorecard">Score:0</div>
+<div id="timediv">Starting...</div>
+</body>
+<script>
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+var score = 0;
+var timeinterval=0;
+
+var creatediv = function()
+{
+$('#timediv').nextAll().remove();
+for (i=1;i<5;i++)
+{
+var randomnum1 = parseInt((Math.random()*window.innerWidth)-50);
+var randomnum2 = parseInt((Math.random()*window.innerHeight)-50)
+var leftpos = randomnum1-(randomnum1%60);
+var toppos = randomnum2-(randomnum2%60);
+var existval;
+$('div.dotcontainer').each(function(index)
+{
+	if(($(this).css('left')==(leftpos+'px'))&&($(this).css('top')==(toppos+'px')))
+	{console.log('exists');existval="exist";}
+});
+
+if(existval!="exist")
+{$('body').append('<div class="dotcontainer" style="position:absolute;left:'+leftpos+'px;top:'+toppos+'px;bor/der:1px solid black;width:60px;height:60px"><div class="dots" style="margin:auto;margin-top:15px;background-color:'+getRandomColor()+'"></div></div>');}
+}
+$('.dotcontainer').click(function()
+{
+$('body').append('<div id="scoredisplay">+1</div>');
+$(this).remove();
+$('#scoredisplay').css({'display':'block','left':$(this).css('left'),'top':(parseInt($(this).css('top'))-50)});
+console.log('clicked');
+score++;
+$('#scorecard').html('Score:'+score);
+});
+
+};
+
+
+var updatefun = function()
+{   
+	console.log(timeinterval);
+	if(timeinterval==5)
+	{
+	$('#timediv').html('Game Over');
+	$('#timediv').nextAll().remove();
+	clearInterval(interval);
+	}
+	else
+	{
+	creatediv();
+	$('#timediv').html(5-timeinterval+' sec');
+	}
+	timeinterval++;
+};
+
+var interval;
+interval=setInterval(updatefun,2000);
+ 
+
+
+$('button').click(function()
+{
+$('#timediv').nextAll().remove();
+timeinterval=0;
+clearInterval(interval);
+interval=setInterval(updatefun,2000);
+score=0;
+$('#scorecard').html('Score:'+score);
+$('#timediv').html('Restarting...');
+});
+
+
+</script>
+</html>
