@@ -1,1 +1,126 @@
 
+<html>
+<head>
+<style>
+body{margin:auto;overflow:hidden;}
+.btn-container{position:absolute;top:5px;right:5px;z-index:1;}
+.btn{padding:10px;background:#04bcb5;color:white;border:none;box-shadow:0px 0px 2px 2px #555555;margin-left:20px;}
+.btn:hover{cursor:pointer;background:#037b77;}
+#ins{color:#037b77;margin:auto;width:1000px;height:auto;text-align:center;font-family:Arial;font-size:25px;}
+</style>
+</head>
+<body>
+<div class="btn-container">
+<button class="btn drw" onclick='drawstart()'>GENERATE PATTERN</button>
+<button class="btn clr" onclick='clearfun()'>CLEAR</button>
+</div>
+<div id="ins">Click on different points on screen and then click on button GENERATE PATTERN</div>
+<canvas id="mycanvas" width="1920" height="1080" style="position:absolute;top:0;left:0;z-index:0;">
+</canvas>
+</body>
+<script>
+
+var canvas=document.getElementById('mycanvas');
+var ctx = canvas.getContext('2d');
+var i,m=0;
+var myvar,rancolor;
+rancolor='';
+var x=[];
+var y =[];
+i=0;
+
+var generatecolor = function()
+{
+	colorarr=[0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f']
+	ctx.strokeStyle="'"+colorarr[Math.floor(Math.random()*16)]+"'";
+	rancolor='';
+	for (i=0;i<6;i++)
+	{
+	rancolor+=colorarr[Math.floor(Math.random()*16)];
+	}
+	ctx.strokeStyle="#"+rancolor;
+	i=0;
+};
+generatecolor();
+
+canvas.addEventListener('click',
+function(e)
+{
+console.log('i='+i);
+x[i]=e.pageX;y[i]=e.pageY;
+	if(i==0)
+	{
+	console.log("#"+rancolor);
+	ctx.beginPath();
+	ctx.moveTo(x[i],y[i]);
+	}
+	else
+	{
+	ctx.lineTo(x[i],y[i]);
+	ctx.stroke();
+	}
+i++;
+});
+
+
+function drawstart()
+{
+ctx.closePath();
+myvar = setInterval(drawfun,100);
+document.getElementById('ins').style.visibility='hidden';
+}
+
+function clearfun()
+{
+ctx.clearRect(0,0,1920,1080);
+document.getElementById('ins').style.visibility='visible';
+x=[];y=[];i=0;m=0;
+clearInterval(myvar);
+generatecolor();
+}
+
+function drawfun()
+{   
+	    if(m>100)
+		{
+		clearInterval(myvar);
+		m=0;
+		}
+		else
+		{
+			ctx.save();
+			ctx.translate(960,540);
+			ctx.rotate(0.1*m);
+			ctx.translate(-960,-540);
+			
+			for(var n=0;n<=x.length;n++)
+			{   
+				if(n==0)
+				{
+				ctx.beginPath();
+				ctx.moveTo(x[n],y[n]);
+				
+				}
+				else if(n==x.length)
+				{
+				ctx.closePath();
+				ctx.stroke();
+				
+				}
+				else
+				{
+				ctx.lineTo(x[n],y[n]);
+				ctx.stroke();
+				
+				}
+			
+			}
+			ctx.restore();
+			m++;
+		}
+	
+}
+
+
+</script>
+</html>
