@@ -1,0 +1,97 @@
+<html>
+<head>
+<script src="../../jquery.js"></script>
+<style>
+body{background:#FFCC99;}
+.tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(-45deg);}
+.tag a{text-decoration:none;color:white;}
+.wrapper{width:900px;height:600px;bord/er:1px solid black;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
+.cover{width:450px;height:590px;background:#FF3333;position:absolute;right:4;top:0;border:7px dotted white;transform-origin:0% 50%;transform:rotateY(10deg);transition:transform 1.5s,background 2s;z-index:0;perspective:0px;}
+.cover:before{content:'My Book';font-family:Arial;color:white;font-size:70px;position:relative;top:8%;left:9%;transition:opacity 0.7s;opacity:1;}
+.first-page,.second-page,.third-page{width:464px;height:600px;background:white;position:absolute;right:0;top:0;transform:rotateY(10deg);transform-origin:0% 50%;-webkit-transition:transform 2s;perspective:0px;box-shadow:inset 10px 0px 40px -20px black;}
+.third-page{box-shadow:20px 0px 8px 0px black;}
+.first-page:before,.second-page:before,.third-page:before{content:'';width:464px;height:2px;border-bottom:1px #FFCD9B solid;position:absolute;box-shadow:0px 40px #FFCD9B,0px 80px #FFCD9B,0px 120px #FFCD9B,0px 160px #FFCD9B,0px 200px #FFCD9B,0px 240px #FFCD9B,0px 280px #FFCD9B,0px 320px #FFCD9B,0px 360px #FFCD9B,0px 400px #FFCD9B,0px 440px #FFCD9B,0px 480px #FFCD9B,0px 520px #FFCD9B,0px 560px #FFCD9B;}
+
+</style>
+</head>
+<body>
+<div class="tag"><a  href="../index.html">CREATED BY ABHAY SRIVASTAV</a></div>
+<div class="wrapper">
+<input id="control" type="checkbox" style="visibility:hidden;"/>
+<div class="fourth-page"></div>
+<div class="third-page"></div>
+<div class="second-page"></div>
+<div class="first-page"></div>
+<div class="cover"></div>
+<a id="turn_btn_forward" href="#" style="width:450px;height:600px;background:transparent;position:absolute;right:0;top:0;border:none;z-index:999"></a>
+<a id="turn_btn_back" href="#" style="width:450px;height:600px;background:transparent;position:absolute;left:0;top:0;border:none;z-index:999"></a>
+</div>
+
+</body>
+<script>
+var i=0;
+$('#turn_btn_forward').click(function()
+{
+if(i==0)
+{
+$('.cover').css({transform:'rotateY(180deg) perspective(800px)',background:'#FFA6A6'});
+}
+else if(i==1)
+{
+$('.cover,.second-page').css('zIndex','0');
+$('.first-page').css('zIndex','1');
+$('.first-page').css({transform:'rotateY(180deg) perspective(800px)'});
+}
+else if(i==2)
+{
+$('.first-page').css('zIndex','1');
+$('.second-page').css('zIndex','2');
+$('.second-page').css({transform:'rotateY(180deg) perspective(800px)'});
+}
+else
+{
+$('.second-page').css('transition','none');
+$('.second-page').css({'transform':'rotateY(10deg)','perspective':'0px'});
+setTimeout(function(){$('.second-page').css('transition','transform 2s');
+$('.second-page').css({'transform':'rotateY(180deg) perspective(800px)'});},50);
+console.log(i);
+}
+i++
+});
+
+$('#turn_btn_back').click(function()
+{
+if(i==0)
+{
+console.log('no page to turn');
+//$('.cover').css({transform:'rotateY(180deg) perspective(800px)',background:'#FFA6A6'});
+}
+else if(i==1)
+{
+$('.first-page,.second-page').css('zIndex','1');
+$('.cover').css('zIndex','2');
+$('.cover').css({transform:'rotateY(10deg)',background:'#FF3333',zIndex:'999'});
+i--;
+}
+else if(i==2)
+{
+$('.second-page,.cover-page').css('zIndex','1');
+$('.first-page').css('zIndex','2');
+$('.first-page').css({transform:'rotateY(10deg)'});
+i--;
+}
+else
+{
+$('.first-page,.cover-page').css('zIndex','1');
+$('.second-page').css('zIndex','2');
+$('.second-page').css('transition','none');
+$('.second-page').css({'transform':'rotateY(180deg) perspective(800px)'});
+setTimeout(function(){$('.second-page').css('transition','transform 2s');
+$('.second-page').css({'transform':'rotateY(10deg)'});},50);
+console.log(i);
+i--;
+}
+
+});
+</script>
+</html>
