@@ -1,0 +1,37 @@
+<html>
+<head>
+<style>
+.upper-thunderbolt{-webkit-animation:upperthunderboltanimation 1s infinite ease-in;}
+.lower-thunderbolt{-webkit-animation:lowerthunderboltanimation 1s infinite ease-in;}
+
+@-webkit-keyframes upperthunderboltanimation
+{
+0%{top:-400px;}
+20%{top:0px;}
+100%{top:-400px;}
+}
+
+@-webkit-keyframes lowerthunderboltanimation
+{
+0%{top:200px;left:20px}
+20%{top:-240px;left:20px;}
+100%{top:200px;left:20px}
+}
+</style>
+</head>
+<body style="overflow:hidden;background:-webkit-radial-gradient(#BB2512,#690A0D)">
+<div style="width:250px;height:250px;background:white;position:absolute;border-radius:50%;left:0;right:0;top:0;bottom:0;margin:auto;box-shadow:0 0 10px white;z-index:0;display:block;">
+</div>
+<div style="-webkit-transform:rotate(20deg);borde/r:solid 1px black;width:60px;height:520px;position:relative;top:20%;left:50%;z-index:1;display:block;">
+<div class="upper-thunderbolt" style="position:relative;top:-400px;">
+<div style="width:0px;height:0px;border-width:0px 0px 200px 20px;border-color:transparent transparent #F5D75D transparent;border-style:solid;"></div>
+<div style="width:0px;height:0px;border-width:0px 0px 200px 20px;border-color:transparent transparent transparent #F5D75D;border-style:solid;margin-left:20px;position:relative;top:-40px"></div>
+</div>
+<div class="lower-thunderbolt" style="position:relative;top:200px;left:20px">
+<div style="width:0px;height:0px;border-width:0px 0px 200px 20px;border-color:transparent transparent #F5D75D transparent;border-style:solid;"></div>
+<div style="width:0px;height:0px;border-width:0px 0px 200px 20px;border-color:transparent transparent transparent #F5D75D;border-style:solid;margin-left:20px;position:relative;top:-40px"></div>
+</div>
+</div>
+
+</body>
+</html>
