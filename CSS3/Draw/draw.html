@@ -1,0 +1,24 @@
+<html>
+<head>
+<style>
+.wrapper{width:600px;height:600px;border:1px solid black;position:absolute;margin:auto;top:0;right:0;left:0;bottom:0;}
+.blade{width:100px;height:250px;bo/rder:1px solid black;margin:auto;position:absolute;top:0;background:-webkit-radial-gradient(bottom,white 5%,black);left:250px;border-radius:50%;}
+.bla/de:before{content:'';position:absolute;width:0;height:0;border-style:solid;border-width:250px 50px 0px 0px;border-color:white transparent transparent transparent;}
+.blade:before{content:'';position:absolute;width:50;height:240;background:white;border-radius:0px 0px 100% 0px;}
+.blade:after{content:'';position:absolute;width:50;height:240;background:white;border-radius:0px 0px 0px 100%;right:0;}
+.blade.right{-webkit-transform-origin:bottom right;-webkit-transform:translateY(100px) rotate(90deg);}
+.blade.bottom{-webkit-transform-origin:bottom center;-webkit-transform:translateY(100px) rotate(180deg);}
+.blade.left{-webkit-transform-origin:bottom left;-webkit-transform:translateY(100px) rotate(-90deg);}
+.center.portion{width:100px;height:100px;position:absolute;background:radial-gradient(rgb(243, 243, 243) 40%,rgb(107, 107, 107));;top:0;right:0;left:0;bottom:0;margin:auto;border-radius:50%;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="blade top"></div>
+<div class="blade right"></div>
+<div class="blade left"></div>
+<div class="blade bottom"></div>
+<div class="center portion"></div>
+</div>
+</body>
+</html>
