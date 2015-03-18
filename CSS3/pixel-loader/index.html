@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+body{background:black;}
+#center{position:absolute;width:500px;height:40px;border:1px solid white;margin:auto;top:0;bottom:0;left:0;right:0;box-shadow:0px 0px 10px 1px white;}
+#center div{display:block;float:left}
+#main{width:100px;height:100%;background:#92C81A;-webkit-animation:stretch 5s linear infinite;}
+.row{width:400px;height:10px;backgro/und:blue;bo/rder:solid 1px white;-webkit-animation:squeeze 5s linear infinite;}
+.sq{width:10px;height:10px;bord/er:solid 1px white;display:block;float:left}
+#r_four .sq{background:#92C81A;}
+#sq-2{background:#4A672F;}
+#sq-3{ background:#1D2019;}
+#sq-6{ background:#2C341C;}
+#sq-1, #sq-5, #sq-9 {
+  background: #74B215;
+}
+#sq-4, #sq-8, #sq-12 {
+  background: #7BC415;
+}
+
+#sq-7, #sq-10, #sq-11 {
+  background: #92C81A;
+}
+
+@-webkit-keyframes stretch
+{
+0%{width:100px;}
+50%{width:300px;}
+100%{width:100px;}
+}
+
+@-webkit-keyframes squeeze
+{
+0%{width:400px;}
+50%{width:200px;}
+100%{width:400px;}
+}
+
+
+
+</style>
+</head>
+<body>
+<div id="center">
+<div id="main"></div>
+<div class="row" id="r_one">
+<span class="sq" id="sq-1"></span>
+<span class="sq" id="sq-2"></span>
+<span class="sq" id="sq-3"></span>
+</div>
+<div class="row" id="r_two">
+<span class="sq" id="sq-4"></span>
+<span class="sq" id="sq-5"></span>
+<span class="sq" id="sq-6"></span>
+</div>
+<div class="row" id="r_three">
+<span class="sq" id="sq-7"></span>
+<span class="sq" id="sq-8"></span>
+<span class="sq" id="sq-9"></span>
+</div>
+<div class="row" id="r_four">
+<span class="sq" id="sq-10"></span>
+<span class="sq" id="sq-12"></span>
+<span class="sq" id="sq-13"></span>
+</div>
+</div>
+</body>
+</html>
