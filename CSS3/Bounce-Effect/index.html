@@ -1,0 +1,59 @@
+<html>
+<head>
+<script src="../../jquery.js"></script>
+<link rel="stylesheet" href="a.css"/>
+<style>
+.tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(-45deg);}
+.tag a{text-decoration:none;color:white;}
+</style>
+</head>
+<body style="margin:auto">
+<div class="tag"><a  href="../index.html">CREATED BY ABHAY SRIVASTAV</a></div>
+<div class="btn_div" style="position:absolute;right:0px;z-index:1;"><button id="anim_btn">Animate</button><button id="clear_btn">Clear curve</button></div>
+<svg width="1910" height="900" style="border:solid 1px black;position:relative;left:0px;top:0px;z-index:0;">
+<path id="path1" d="" style="fill:none;stroke:black;" />
+<circle cx="0" cy="0" r="20" style="fill:white" >
+
+	
+</circle>
+</svg>
+</body>
+<script>
+var clickcount,mousex,mousey,dtring;
+clickcount=0;
+$('svg').click(function(e)
+{
+mousex=e.pageX-$(this).position().left;
+mousey=e.pageY-$(this).position().top;
+if(clickcount==0)
+{
+dstring="M "+mousex+" "+mousey+" ";
+$('#path1').attr('d',dstring);
+}
+else if(clickcount==1)
+{
+dstring="Q "+parseInt(mousex-60)+" "+parseInt(mousey-40)+", "+mousex+" "+mousey+" ";
+$('#path1').attr('d',$('#path1').attr('d')+dstring);
+}
+else
+{
+dstring="T "+mousex+" "+mousey+" ";
+$('#path1').attr('d',$('#path1').attr('d')+dstring);
+}
+clickcount++;
+
+});
+
+
+$('#clear_btn').click(function()
+{$('#path1').attr('d','');
+clickcount=0;
+$('circle').html('');
+})
+
+$('#anim_btn').click(function()
+{
+$('circle').html('<animateMotion dur="6s" repeatCount="indefinite" ><mpath xlink:href="#path1"/></animateMotion>');
+})
+</script>
+</html>
