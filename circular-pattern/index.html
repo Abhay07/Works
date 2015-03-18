@@ -1,0 +1,30 @@
+<html>
+<head>
+<style>
+.wrapper{width:400px;height:400px;bo/rder:1px solid black;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;}
+ul{height:100%;-webkit-animation:rotateanim 10s infinite linear;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;}
+ul li{list-style:none;width:60px;height:100%;background:black;position:absolute;top:0;left:0;bottom:0;right:0;margin:auto;opacity:0.5;border-radius:50%;}
+li:first-child{transform:rotate(0deg);}
+li:nth-child(2){transform:rotate(45deg);}
+li:nth-child(3){transform:rotate(90deg);}
+li:nth-child(4){transform:rotate(135deg);}
+@-webkit-keyframes rotateanim
+{
+100%{transform:rotate(360deg);}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div style="width:100%;height:100%;background:#FF5959;border-radius:50%;position:absolute;top:0px;">
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+</div>
+</body>
+
+</html>
