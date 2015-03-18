@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+.ice-brown:after{content:"";width:15px;height:15px;position:absolute;border-radius:50%;background:#FF3333;box-shadow:15px 0px #FF3333,30px 0px #FF3333,45px 0px #FF3333,60px 0px #FF3333,75px 0px #FF3333,85px 0px #FF3333;top:80%;}
+.ice-pink:after{content:"";width:15px;height:15px;position:absolute;border-radius:50%;background:#FFCCFF;box-shadow:15px 0px #FFCCFF,30px 0px #FFCCFF,45px 0px #FFCCFF,60px 0px #FFCCFF,75px 0px #FFCCFF,85px 0px #FFCCFF;top:80%;}
+.ice-orange:after{content:"";width:15px;height:15px;position:absolute;border-radius:50%;background:#FF9B59;box-shadow:15px 0px #FF9B59,30px 0px #FF9B59,45px 0px #FF9B59,60px 0px #FF9B59,75px 0px #FF9B59,85px 0px #FF9B59;top:80%;}
+.drop:after{content:"";position:absolute;border-color:transparent transparent #FF3333; transparent;border-style:solid;border-width:0px 10px 20px 10px;border-radius:20px 20px 20px 20px;position:absolute;top:-16px;left:-2.2px }
+.drop{-webkit-animation:icedropanim 1s ease-in infinite;}
+
+@-webkit-keyframes icedropanim
+{
+0%{top:50px;}
+100%{top:200px;}
+}
+
+</style>
+</head>
+<body>
+<div style="border:1px solid black;width:200px;height:300px;float:left;margin-right:20px;position:relative;top:30%;">
+<div style="width:0px;height:0px;border-style:solid;border-color:#993300 transparent transparent transparent;border-width:100px 40px 0px 40px;position:relative;top:40%;margin:auto;"></div>
+<div class="ice-brown" style="width:100px;height:50px;background:#FF3333;position:absolute;top:25%;left:50px;border-radius:50px 50px 0px 0px;"></div>
+<div class="ice-pink" style="width:100px;height:50px;background:#FFCCFF;position:absolute;top:18%;left:50px;border-radius:50px 50px 0px 0px;"></div>
+<div class="ice-orange" style="width:100px;height:50px;background:#FF9B59;position:absolute;top:11%;left:50px;border-radius:50px 50px 0px 0px;"></div>
+<div class="drop" style="width:15px;height:10px;background:#FF3333;border-radius:0px 0px 10px 10px;position:relative;left:50px;top:50px"></div>
+</div>
+<div style="border:1px solid black;width:200px;height:300px;float:left;position:relative;top:30%;">
+<div style="width:100px;height:100px;border:solid 12px #F8C431;border-radius:50%;margin:auto;position:relative;top:20%;">
+<div style="width:96px;height:96px;background:#F7E4A8;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;border-radius:50%;border:solid 2px red;"></div>
+<div style="width:12px;height:12px;border-radius:50%;background:red;position:relative;left:17%;top:20%;box-shadow:30px 5px red,60px 15px red,10px 35px red,40px 40px red;"></div>
+<div style="width:5px;height:8px;background:#27AE60;transform:skew(30deg);position:relative;top:30px;left:30px;box-shadow:20px 5px #27AE60,40px -10px #27AE60,-25px 15px #27AE60,-8px 35px #27AE60,38px 15px #27AE60;"></div>
+</div>
+</div>
+
+</body>
+</html>
