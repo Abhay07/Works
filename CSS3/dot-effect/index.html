@@ -1,0 +1,37 @@
+<html>
+<head>
+<link rel="stylesheet" href="index.css" />
+<script src="../../jquery.js"></script>
+</head>
+<body>
+</body>
+<script>
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+var creatediv = function(leftpos,toppos)
+{
+$('body').append('<div class="dotcontainer" style="position:absolute;left:'+leftpos+'px;top:'+toppos+'px;width:60px;height:60px"><div class="dots" style="margin:auto;margin-top:15px;background-color:'+getRandomColor()+'"></div></div>');
+$('.dots').animate({'height':'60px','width':'60px','opacity':'0'},500,function(){$(this).remove();});
+};
+
+
+$('body').mousemove(function(e)
+{
+
+if((e.pageX%10==0))
+creatediv(e.pageX,e.pageY);
+});
+
+
+
+
+
+</script>
+</html>
