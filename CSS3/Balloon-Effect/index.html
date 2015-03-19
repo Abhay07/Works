@@ -2,6 +2,7 @@
 <head>
 <style>
 body{overflow:hidden;}
+.info{width:1000px;hei/ght:200px;margin:auto;display:block;text-align:center;position:relative;top:40px;font-size:28px;color:rgb(107, 107, 107);}
 .tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(-45deg);}
 .tag a{text-decoration:none;color:white;}
 .balloon{width:100px;height:50px;background:red;position:absolute;border-radius:50px 50px 0px 0px;-webkit-animation:moveup infinite linear}
@@ -17,6 +18,7 @@ body{overflow:hidden;}
 </head>
 <body>
 <div class="tag"><a  href="../index.html">CREATED BY ABHAY SRIVASTAV</a></div>
+<div class="info">Click on the Balloons to burst.</div>
 <div class="balloon" style="position:absolute;left:10%;-webkit-animation-duration:3s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
 <div class="balloon" style="position:absolute;left:20%;-webkit-animation-duration:5.5s;background:#FF3333;"><div class="lower-part" style="border-top-color:#FF3333;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
 <div class="balloon" style="position:absolute;left:24%;-webkit-animation-duration:9s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
@@ -30,11 +32,13 @@ body{overflow:hidden;}
 <script src="../../jquery.js"></script>
 <script>
 var leftpos,toppos;
+$('#burstballoon').hide();
 $('.balloon').click(function(){
 toppos=$(this).css('top');leftpos=$(this).css('left');strokecol=$(this).css('background-color');
 console.log(strokecol);
 $('#burstpath').attr('stroke-width','4');
 $('#burstpath').attr('stroke',strokecol);
+$('#burstballoon').show();
 $('#burstballoon').css({position:"absolute",top:toppos,left:leftpos});
 $(this).attr('class','resetballoon');
 var obj = $(this);
