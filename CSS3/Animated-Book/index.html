@@ -32,13 +32,13 @@
 
 </body>
 <script>
+$('.wrapper').css('-webkit-transform','scale('+0.001*$(document).height()+')');
 var i=0;
 $('#turn_btn_forward').click(function()
 {
 if(i==0)
 {
 $('.cover').css({transform:'rotateY(180deg) perspective(800px)',background:'#FFA6A6'});
-
 }
 else if(i==1)
 {
@@ -62,7 +62,6 @@ console.log(i);
 }
 i++
 });
-
 $('#turn_btn_back').click(function()
 {
 if(i==0)
@@ -95,7 +94,6 @@ $('.second-page').css({'transform':'rotateY(10deg)'});},50);
 console.log(i);
 i--;
 }
-
 });
 </script>
 </html>
