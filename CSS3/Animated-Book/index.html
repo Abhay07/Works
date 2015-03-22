@@ -32,7 +32,11 @@
 
 </body>
 <script>
+$(document).ready
+(
+function(){
 $('.wrapper').css('-webkit-transform','scale('+0.001*$(document).height()+')');
+$(window).resize(function(){$('.wrapper').css('-webkit-transform','scale('+0.001*$(document).height()+')')});
 var i=0;
 $('#turn_btn_forward').click(function()
 {
@@ -94,6 +98,7 @@ $('.second-page').css({'transform':'rotateY(10deg)'});},50);
 console.log(i);
 i--;
 }
+});
 });
 </script>
 </html>
