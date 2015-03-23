@@ -1,23 +1,20 @@
-body{margin:auto;background:#90cd66;color:#636067;font-family:Cambria;}
-.wrapper{width:50%;height:99%;bo/rder:1px solid black;margin:auto;position:relative;background:white;box-shadow:0px 0px 17px 0px black;}
-.site-title{width:100%;height:100px;bo/rder:1px solid black;text-align:center;line-height:100px;font-size:40px;position:absolute;top:0;-webkit-transform:rotate(0deg);transition:top 1.5s,-webkit-transform 1.5s;color:#668f4b;}
-
-.menu{width:100%;height:40px;bo/rder:1px solid black;position:absolute;top:100;transition:top 1s;border: 1px solid #7EB25C;border-left:none;border-right:none;font-size:18px;}
-ul{width:100%;height:100%;list-style:none;margin:0;padding:0;}
-ul li{width:25%;height:100%;outli/ne:1px solid #7eb25c;float:left;text-align:center;line-height:40px;}
-li.active{background:#7eb25c;color:white;}
-li:hover{cursor:pointer;background:#7eb25c;color:white;}
-.main-content{width:100%;height:80%;bo/rder:1px solid black;font-size:20px;overflow:scroll;position:absolute;top:140px;transition:top 0.5s;}
+body{margin:auto;background:#8ef1ed;color:#636067;font-family:Cambria;}
+.wrapper{width:50%;bo/rder:1px solid black;margin:auto;position:relative;background:white;box-shadow:0px 0px 58px 0px #b0aeae;z-index:1;transition:all 1s;}
+.wrapper.two{position:absolute;top:50px;left:50px;z-index:0;}
+.wrapper.three{position:absolute;top:50px;right:50px;z-index:0;}
+.site-title{width:100%;height:40px;bord/er:1px solid black;text-align:center;line-height:40px;font-size:25px;color:white;background:#111111;}
+.main-content{width:100%;b/order:1px solid black;font-size:20px;position:relative;-webkit-transform:rotate(0deg);}
 .story{padding:20px;}
 .story-name{text-align:center;width:100%;height:40px;bor/der:1px solid black;line-height:40px;font-size:30px;}
-.footer{width:100%;height:40px;position:absolute;bottom:0px;bo/rder:1px solid black;background:#668f4b;color:white;font-size:15px;line-height:40px;text-align:center;}
+.story-content{font-size:17px;color:black;}
+.footer{width:100%;height:40px;position:absolute;bottom:0px;bo/rder:1px solid black;background:#668f4b;color:white;font-size:15px;line-height:40px;text-align:center;transition:all 1.5s;-webkit-transform:rotate(0deg);}
 @-webkit-keyframes fallanim {
 100%{top:900px;}
 }
 input{display:none;}
 label{position:absolute;top:0;left:0;width:100px;height:50px;border:1px solid white;background:white;color:#668f4b;text-align:center;line-height:50px;font-size:20px;}
 label:hover{cursor:pointer;box-shadow:0px 0px 17px 0px black;}
-input:checked ~.wrapper div{top:900px;-webkit-transform:rotate(10deg)}
+input:checked ~.wrapper div:not(.footer){top:80%;-webkit-transform:rotate(10deg);}
 .ripple{position:absolute;width:100px;height:100px;border-radius:50%;box-shadow:0px 0px 17px 0px black;bottom:0;left:0;-webkit-animation:rippleanim 1s infinite;display:none;}
 .ripple:before{content:'';width:60px;height:60px;border-radius:50%;position:absolute;top:0;right:0;left:0;bottom:0;margin:auto;box-shadow:0px 0px 17px 0px black;}
 
