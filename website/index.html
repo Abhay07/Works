@@ -2,7 +2,7 @@
 <head>
 <link href="index.css" rel="stylesheet"/>
 </head>
-<body>
+<body onclick="ripplefun()">
 <input type="checkbox" id="shred_btn" />
 <label for="shred_btn">CLick Me</label>
 <div class="wrapper">
@@ -77,6 +77,14 @@ if(e==3)
 {
 document.getElementsByClassName('story-content')[0].innerHTML='fourth Story';
 }
+}
+
+function ripplefun(e)
+{
+document.getElementsByClassName('ripple')[0].style.display='block';
+document.getElementsByClassName('ripple')[0].style.top=event.clientY;
+document.getElementsByClassName('ripple')[0].style.left=event.clientX;
+console.log(event.clientX,event.clientY);
 }
 </script>
 </html>
