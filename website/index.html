@@ -2,12 +2,12 @@
 <head>
 <link href="index.css" rel="stylesheet"/>
 </head>
-<body onclick="ripplefun()">
-<div class="wrapper one">
+<body onkeydown="ripplefun()">
+<div class="wrapper" id="wrappercenter">
 <div class="site-title">SHORT STORIES</div>
 <div class="main-content">
 <div class="story">
-<div class="story-name">Life Story</div>
+<div class="story-name">Life Story Center</div>
 <p></p>
 <div class="story-content">
 A professor stood before his philosophy class and had some items in front of him. When the class began, he wordlessly picked up a very large and empty mayonnaise jar and proceeded to fill it with golf balls. He then asked the students if the jar was full. They agreed that it was.<p></p>
@@ -37,11 +37,11 @@ One of the students raised her hand and inquired what the Beer represented. The 
 </div>
 
 </div>
-<div class="wrapper two">
+<div class="wrapper" id="wrapperleft">
 <div class="site-title">SHORT STORIES</div>
 <div class="main-content">
 <div class="story">
-<div class="story-name">Life Story</div>
+<div class="story-name">Life Story left</div>
 <p></p>
 <div class="story-content">
 A professor stood before his philosophy class and had some items in front of him. When the class began, he wordlessly picked up a very large and empty mayonnaise jar and proceeded to fill it with golf balls. He then asked the students if the jar was full. They agreed that it was.<p></p>
@@ -71,11 +71,11 @@ One of the students raised her hand and inquired what the Beer represented. The 
 </div>
 
 </div>
-<div class="wrapper three">
+<div class="wrapper" id="wrapperright">
 <div class="site-title">SHORT STORIES</div>
 <div class="main-content">
 <div class="story">
-<div class="story-name">Life Story</div>
+<div class="story-name">Life Story right</div>
 <p></p>
 <div class="story-content">
 A professor stood before his philosophy class and had some items in front of him. When the class began, he wordlessly picked up a very large and empty mayonnaise jar and proceeded to fill it with golf balls. He then asked the students if the jar was full. They agreed that it was.<p></p>
@@ -105,41 +105,28 @@ One of the students raised her hand and inquired what the Beer represented. The 
 </div>
 
 </div>
-<div class="ripple"></div>
+<div class="info">Press &#8594; or &#8592; key.</div>
 </body>
 <script>
-function changestory(e)
-{
-var alllinks = document.getElementsByTagName('li')
-for(var i=0;i<alllinks.length;i++)
-{
-document.getElementsByTagName('li')[i].className='';
-}
-document.getElementsByTagName('li')[e].className='active';
-if(e==0)
-{
-document.getElementsByClassName('story-content')[0].innerHTML='first Story';
-}
-if(e==1)
-{
-document.getElementsByClassName('story-content')[0].innerHTML='second Story';
-}
-if(e==2)
-{
-document.getElementsByClassName('story-content')[0].innerHTML='third Story';
-}
-if(e==3)
-{
-document.getElementsByClassName('story-content')[0].innerHTML='fourth Story';
-}
-}
 function ripplefun(e)
 {
-/*document.getElementsByClassName('ripple')[0].style.display='block';
-document.getElementsByClassName('ripple')[0].style.top=event.clientY;
-document.getElementsByClassName('ripple')[0].style.left=event.clientX;
-console.log(event.clientX,event.clientY);
-*/
+if(event.keyCode==39)
+{
+document.getElementById('wrapperright').id='tochange';
+document.getElementById('wrappercenter').id='wrapperright';
+document.getElementById('wrapperleft').id='tochange2';
+document.getElementById('tochange').id='wrapperleft';
+document.getElementById('tochange2').id='wrappercenter';
+}
+if(event.keyCode==37)
+{
+document.getElementById('wrapperleft').id='tochange';
+document.getElementById('wrappercenter').id='wrapperleft';
+document.getElementById('wrapperright').id='tochange2';
+document.getElementById('tochange').id='wrapperright';
+document.getElementById('tochange2').id='wrappercenter';
+}
+i++;
 }
 </script>
 </html>
