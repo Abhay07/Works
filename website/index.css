@@ -1,27 +1,11 @@
-body{margin:auto;background:#8ef1ed;color:#636067;font-family:Cambria;}
-.wrapper{width:50%;bo/rder:1px solid black;background:white;box-shadow:0px 0px 58px 0px #b0aeae;transition:all 1.5s;position:absolute;}
+body{margin:auto;background:white;color:#6b6666;font-family:Cambria;overflow:hidden;}
+.wrapper{width:50%;bo/rder:1px solid black;background:white;box-shadow:0px 0px 58px 0px #b0aeae;transition:all 2s,z-index 2s linear;position:absolute;}
 #wrappercenter{top:0px;left:25%;z-index:2;opacity:1;}
-#wrapperleft{top:50px;left:2%;z-index:1;opacity:0.7;}
-#wrapperright{top:50px;left:47%;z-index:0;opacity:0.7;}
+#wrapperleft{top:50px;left:-24%;z-index:1;opacity:1;}
+#wrapperright{top:50px;left:74%;z-index:0;opacity:1;}
 .info{position:absolute;top:0;left:0;background:black;color:white;padding:10px;}
-.site-title{width:100%;height:40px;bord/er:1px solid black;text-align:center;line-height:40px;font-size:25px;color:white;background:#111111;}
+.site-title{width:100%;height:40px;bord/er:1px solid black;text-align:center;line-height:40px;font-size:25px;color:white;background:#643D88;}
 .main-content{width:100%;b/order:1px solid black;font-size:20px;position:relative;-webkit-transform:rotate(0deg);}
 .story{padding:20px;}
 .story-name{text-align:center;width:100%;height:40px;bor/der:1px solid black;line-height:40px;font-size:30px;}
-.story-content{font-size:17px;color:black;}
-.footer{width:100%;height:40px;position:absolute;bottom:0px;bo/rder:1px solid black;background:#668f4b;color:white;font-size:15px;line-height:40px;text-align:center;transition:all 1.5s;-webkit-transform:rotate(0deg);}
-@-webkit-keyframes fallanim {
-100%{top:900px;}
-}
-input{display:none;}
-label{position:absolute;top:0;left:0;width:100px;height:50px;border:1px solid white;background:white;color:#668f4b;text-align:center;line-height:50px;font-size:20px;}
-label:hover{cursor:pointer;box-shadow:0px 0px 17px 0px black;}
-input:checked ~.wrapper div:not(.footer){top:80%;-webkit-transform:rotate(10deg);}
-.ripple{position:absolute;width:100px;height:100px;border-radius:50%;box-shadow:0px 0px 17px 0px black;bottom:0;left:0;-webkit-animation:rippleanim 1s infinite;display:none;}
-.ripple:before{content:'';width:60px;height:60px;border-radius:50%;position:absolute;top:0;right:0;left:0;bottom:0;margin:auto;box-shadow:0px 0px 17px 0px black;}
-
-@-webkit-keyframes rippleanim
-{
-0%{-webkit-transform:scale(1);opacity:1;}
-100%{-webkit-transform:scale(5);opacity:0;}
-}
+.story-content{font-size:17px;color:#6b6666;}
