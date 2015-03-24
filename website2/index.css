@@ -1,32 +1,13 @@
-body{margin:auto;}
-#stage {width:100%;height:100%;position:relative;-webkit-transform-style:preserve-3d;-webkit-transform:translateZ(-600px)}
+body{margin:auto;font-family:Cambria;overflow:hidden;}
+#stage {width:100%;height:100%;position:relative;-webkit-transform-style:preserve-3d;-webkit-transform:translateZ(-600px);transition:all 2s;}
 #bigstage{width:100%;height:100%;-webkit-perspective:1000px;-webkit-perspective:50% 50%;margin:auto;}
 .face{width:100%;height:100%;border:1px solid black;position:absolute;}
+.face{background:#F35F55;}
 #front {-webkit-transf/orm:translateZ(90px)}
-#back {;background-image:url('frontwall.jpg')}
-#left{-webkit-transform:rotateY(-90deg);-webkit-transform-origin:top left;background-image:url('leftwall.jpg')}
-#right{-webkit-transform:rotateY(90deg);-webkit-transform-origin:bottom right;background-image:url('rightwall.jpg')}
-#top{-webkit-transform:rotateX(90deg);height:2000px;-webkit-transform-origin:top right;background-image:url('wall.jpg')}
-#bottom{-webkit-transform:rotateX(-90deg);-webkit-transform-origin:bottom left;background-image:url('floor.jpg')}
-
-@-webkit-keyframes myanimation1{
-0%{-webkit-transform:translateZ(-600px)}
-100%{-webkit-transform:translateZ(428px) translateX(-565px) rotateY(87deg);}
-}
-
-@-webkit-keyframes myanimation2{
-0%{-webkit-transform:translateZ(-600px)}
-100%{-webkit-transform:translateZ(428px) translateX(565px) rotateY(-87deg);}
-}
-
-@-webkit-keyframes myanimation3{
-100%{-webkit-transform:translateZ(-600px)}
-}
-
-
-
-.animateclass1{-webkit-animation:myanimation1 2s linear forwards;}
-
-.animateclass2{-webkit-animation:myanimation2 2s linear forwards;}
-
-.animateclass3{-webkit-animation:myanimation3 2s linear forwards;}
+#back {background-image:url('frontwall.jpg')}
+#left{-webkit-transform:rotateY(-90deg);-webkit-transform-origin:top left;background-image:url('leftwall.jpg');}
+#right{-webkit-transform:rotateY(90deg);-webkit-transform-origin:bottom right;background-image:url('rightwall.jpg');}
+#top{-webkit-transform:rotateX(90deg);height:2000px;-webkit-transform-origin:top right;background-image:url('wall.jpg');}
+#bottom{-webkit-transform:rotateX(-90deg);-webkit-transform-origin:bottom left;background-image:url('floor.jpg');background-color:white;}
+.header{width:100%;padding:20px;background:#DDE0CB;color:#373737;line-height:100%;text-align:center;font-size:32px;}
+.main-content{width:60%;height:90%;color:white;padding:20px;margin:auto;font-size:27px;}
