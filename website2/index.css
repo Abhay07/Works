@@ -5,8 +5,8 @@ body{margin:auto;font-family:Cambria;overflow:hidden;}
 .face{background:#F35F55;}
 #front {-webkit-transf/orm:translateZ(90px)}
 #back {background-image:url('frontwall.jpg')}
-#left{-webkit-transform:rotateY(-90deg);-webkit-transform-origin:top left;background-image:url('leftwall.jpg');}
-#right{-webkit-transform:rotateY(90deg);-webkit-transform-origin:bottom right;background-image:url('rightwall.jpg');}
+#left{right:100%;-webkit-transform:rotateY(90deg);-webkit-transform-origin:top right;background-image:url('leftwall.jpg');}
+#right{left:100%;-webkit-transform:rotateY(-90deg);-webkit-transform-origin:bottom left;background-image:url('rightwall.jpg');}
 #top{-webkit-transform:rotateX(90deg);height:2000px;-webkit-transform-origin:top right;background-image:url('wall.jpg');}
 #bottom{-webkit-transform:rotateX(-90deg);-webkit-transform-origin:bottom left;background-image:url('floor.jpg');background-color:white;}
 .header{width:100%;padding:20px;background:#DDE0CB;color:#373737;line-height:100%;text-align:center;font-size:32px;}
