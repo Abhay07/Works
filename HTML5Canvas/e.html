@@ -1,0 +1,62 @@
+<html>
+<head>
+<style>
+body{margin:auto;}
+</style>
+</head>
+<body>
+<img src="bubble.png" id="bubble-img" style="display:none;"/>
+<canvas id="mycanvas" style="border:1px solid black;position:absolute;top:0;left:0;z-index:0;">
+</canvas>
+</body>
+<script>
+window.onload =
+function()
+{
+var canvas=document.getElementById('mycanvas');
+var canheight= window.innerHeight;
+var canwidth= window.innerWidth;
+canvas.width=canwidth;
+canvas.height=canheight;
+console.log(canwidth,canheight);
+var ctx = canvas.getContext('2d');
+var img = document.getElementById('bubble-img');
+ctx.fillStyle="#CCCCCC";
+var i,m,size;
+i=0;m=0;
+setInterval(
+function()
+{
+if(i<=100)
+{
+if(i==100)
+i=0;
+i++;
+size=Math.random()*80+10;
+ctx.drawImage(img,canwidth*Math.random(),canheight*Math.random(),size,size);
+}
+},500);
+
+setInterval(
+function()
+{
+if(m<100)
+{
+ctx.beginPath();
+ctx.arc(960,700,960,m*0.1,m*0.1+0.2);
+ctx.lineTo(960,700);
+ctx.closePath();
+ctx.fill();
+/*if(m%2==0)
+ctx.strokeStyle="red";
+else
+ctx.strokeStyle="green";*/
+m++;
+if((m*0.1+0.2)>Math.PI)
+m=0;
+ctx.stroke();
+}
+},100);
+}
+</script>
+</html>
