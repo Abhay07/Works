@@ -107,27 +107,60 @@ One of the students raised her hand and inquired what the Beer represented. The 
 </div>
 <div class="info">Press &#8594; or &#8592; key.</div>
 </body>
+<script src="jquery.js"></script>
 <script>
+var i=0;
+
 function ripplefun(e)
 {
 
-if(event.keyCode==39)
+if(event.keyCode==39 && i==0)
 {
-document.getElementById('wrapperright').id='tochange';
-document.getElementById('wrappercenter').id='wrapperright';
-document.getElementById('wrapperleft').id='tochange2';
-document.getElementById('tochange').id='wrapperleft';
-document.getElementById('tochange2').id='wrappercenter';
-}
-if(event.keyCode==37)
+i=1;
+if($('#wrapperleft-other').length>0)
 {
-document.getElementById('wrapperleft').id='tochange';
-document.getElementById('wrappercenter').id='wrapperleft';
-document.getElementById('wrapperright').id='tochange2';
-document.getElementById('tochange').id='wrapperright';
-document.getElementById('tochange2').id='wrappercenter';
+console.log('exist');
+$('.wrapper').css('transition','all 0s');
+$('#wrapperleft-other').attr('id','wrapperleft');
+$('#wrapperright-other').attr('id','wrapperright');
+
+}
+setTimeout(function(){
+$('.wrapper').css('transition','all 2s,z-index 2s linear');
+$('#wrapperright').attr('id','tochange');
+$('#wrappercenter').attr('id','wrapperright');
+$('#wrapperleft').attr('id','tochange2');
+$('#tochange').attr('id','wrapperleft');
+$('#tochange2').attr('id','wrappercenter');
+},50);
+}
+
+if(event.keyCode==37 && i==0)
+{
+i=1;
+if($('#wrapperleft').length>0)
+{
+console.log('exist');
+$('.wrapper').css('transition','all 0s');
+$('#wrapperleft').attr('id','wrapperleft-other');
+$('#wrapperright').attr('id','wrapperright-other');
+}
+setTimeout(function(){
+$('.wrapper').css('transition','all 2s,z-index 2s linear');
+$('#wrapperleft-other').attr('id','tochange');
+$('#wrappercenter').attr('id','wrapperleft-other');
+$('#wrapperright-other').attr('id','tochange2');
+$('#tochange').attr('id','wrapperright-other');
+$('#tochange2').attr('id','wrappercenter');
+},50);
+
+
 }
 }
+
+//console.log(document.getElementsByClassName('wrapper')[0]);
+document.getElementsByClassName('wrapper')[0].addEventListener( 'webkitTransitionEnd', 
+    function( event ) { i=0; }, false );
 
 
 </script>
