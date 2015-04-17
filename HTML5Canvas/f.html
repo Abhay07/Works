@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+body{}
+</style>
+</head>
+<body>
+<canvas id="mycanvas" style="borde/r:1px solid black;position:absolute;top:0;left:0;z-index:0;">
+<img src="pageshine.png" id="arrowpattern" style="display:none;"/>
+<img src="garden.png" id="pic"/>
+</canvas>
+</body>
+<script>
+window.onload =
+function()
+{
+var canvas=document.getElementById('mycanvas');
+var ctx = canvas.getContext('2d');
+var canheight= window.innerHeight;
+var canwidth= window.innerWidth;
+var m=1920;
+var len = Math.sqrt(Math.pow(canheight,2)+Math.pow(canwidth,2));
+var angle=Math.atan(canheight/canwidth)+Math.PI/2;
+var factor = 
+console.log(angle*180/Math.PI);
+canvas.width=canwidth;
+canvas.height=canheight;
+var img=new Image();
+img.src='pageshine.png';
+
+var pat=ctx.createPattern(img,'repeat');
+ctx.fillStyle=pat;
+
+var animfun = function(){
+ctx.clearRect(0,0,canwidth,canheight);
+ctx.save();
+ctx.translate(m,0);
+ctx.rotate(-Math.PI/3.5);
+ctx.beginPath();
+ctx.fillStyle=pat;
+ctx.fillRect(0,0,372,len);
+ctx.closePath();
+ctx.stroke();
+ctx.translate(-m,0);
+ctx.restore();
+ctx.beginPath();
+ctx.moveTo(canwidth,0);
+ctx.lineTo(m,0);
+ctx.lineTo(canwidth,m-720);
+ctx.closePath();
+ctx.fillStyle="red";
+ctx.fill();
+m-=5;
+if(m<-len)
+{
+m=1920;
+clearInterval(startanim);
+}
+};
+
+var startanim = setInterval(animfun,5);
+
+canvas.addEventListener("mousedown",function(){if(m==1920){m=1920;clearInterval(startanim);startanim = setInterval(animfun,5);}},false);
+
+}
+
+</script>
+</html>
