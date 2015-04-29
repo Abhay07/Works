@@ -1,4 +1,4 @@
-body{background:#FF7735;}
+body{background:#f26767;}
 .container{width:25px;height:200px;margin:auto;bo/rder:solid 1px black;text-align:center;position:relative;top:40%;-webkit-transform-origin:50% 100%;-webkit-animation:ballanimation 5s 1;}
 .ball{background:url('ball.png');width:25px;height:25px;margin:auto;}
 
