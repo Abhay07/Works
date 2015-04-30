@@ -1,0 +1,66 @@
+<html>
+<head>
+<style>
+body{}
+canvas{borde/r:1px solid black;position:absolute;top:0;left:0;z-index:0;}
+.inst{margin:auto;wid/th:200px;heig/ht:100px;borde/r:1px solid black;text-align:center;font-size:30px;margin-top:2%;}
+</style>
+</head>
+<body>
+<div class="inst">Click anywhere to generate pattern</div>
+</body>
+<script>
+window.onload =
+function()
+{
+var canvas=[];
+var ctx=[];
+var startanim=[];
+var canheight= window.innerHeight;
+var canwidth= window.innerWidth;
+var i=[],mousex=[],mousey=[],m,n=0,startanim=[],d,colorvar;
+i[1]=0;
+document.addEventListener("mousedown",initiatepattern);
+
+function generatepattern(x,y,q,col)
+{
+	ctx[q].clearRect(0,0,canwidth,canheight);
+	mousex[q]=x;mousey[q]=y;
+	ctx[q].beginPath();
+	if(isNaN(i[q]))
+	i[q]=0;
+	i[q]+=2;
+	for(m=0;m<i[q];m+=5)
+	{
+	ctx[q].arc(mousex[q],mousey[q],m,0,2*Math.PI);
+	ctx[q].moveTo(mousex[q]+m+5,mousey[q]);
+	}
+	ctx[q].stroke();
+	ctx[q].strokeStyle = col;
+	ctx[q].closePath();
+}
+
+
+function initiatepattern(p)
+{
+n++;
+var e = document.createElement('canvas');
+e.setAttribute('id','mycanvas['+n+']');
+document.body.appendChild(e);
+canvas[n]=document.getElementById('mycanvas['+n+']');
+ctx[n] = canvas[n].getContext('2d');
+canvas[n].width=canwidth;
+canvas[n].height=canheight;
+for(var d=1;d<=n;d++)
+{
+if(startanim[d-1])
+clearInterval(startanim[d-1]);
+colorvar = "#"+((1<<24)*Math.random()|0).toString(16);
+startanim[d-1]=setInterval(function(){generatepattern(p.clientX,p.clientY,d-1,colorvar);},20);
+
+}
+}
+
+}
+</script>
+</html>
