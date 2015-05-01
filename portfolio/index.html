@@ -1,0 +1,58 @@
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" />
+</head>
+<body>
+<div class="header">
+<div class="identity"><div>ABHAY SRIVASTAV<br><n style="font-size:15px;">Front End Developer</n></div></div>
+<div class="menus">
+<ul>
+<li><div class="menu-pseudo" data="PORTFOLIO">PORTFOLIO</div></li>
+<li><div class="menu-pseudo" data="ABOUT">ABOUT</div></li>
+<li><div class="menu-pseudo" data="CONTACT">CONTACT</div></li>
+</ul>
+</div>
+</div>
+<div class="main-content">
+    <div class="portfolio">
+	<div class="portfolio-heading">PORTFOLIO</div>
+	<div class="works css">
+	<div class="work-heading">CSS3 EXPERIMENTS</div>
+	<div class="work-links"><div><a href="#" style="background-image:url('images/works/book.png')"></div></a><div><a href="#" style="background-image:url('images/works/balloon.png')"></a></div><div><a href="#" style="background-image:url('images/works/ball.png')"></a></div><div><a href="#" style="background-image:url('images/works/circular-loader.png')"></a></div><div><a href="#" style="background-image:url('images/works/face.png')"></a></div><div><a href="#" style="background-image:url('images/works/ninja.png')"></a></div><div><a href="#" style="background-image:url('images/works/cycle.png')"></a></div><div><a href="#" style="background-image:url('images/works/bat.png')"></a></div><div><a href="#" style="background-image:url('images/works/zoom.png')"></a></div><div><a href="#" style="background-image:url('images/works/dot.png')"></a></div></div>
+	</div>
+	<div class="works website">
+	<div class="work-heading">WEBSITE DESIGN</div>
+	<div class="work-links"><div><a href="#" style="background-image:url('images/works/ecommerce.png')"></div></a><div><a href="#" style="background-image:url('images/works/pagetransition.png')"></a></div><div><a href="#" style="background-image:url('images/works/3dpage.png')"></a></div><div><a href="#" style="background-image:url('images/works/mahuri.png')"></a></div></div>
+	</div>
+	<div class="works canvas">
+	<div class="work-heading">CANVAS EXPERIMENTS</div>
+	<div class="work-links"><div><a href="#" style="background-image:url('images/works/circular-pattern.png')"></div></a><div><a href="#" style="background-image:url('images/works/windscreen.png')"></a></div><div><a href="#" style="background-image:url('images/works/pageroll.png')" ></a></div><div><a href="#" style="background-image:url('images/works/walkanimation.png')"></a></div><div><a href="#" style="background-image:url('images/works/concentric-circle.png')"></a></div></div>
+	</div>
+	</div>
+	
+	<div class="about">
+	<div class="pic"></div>
+	<div class="abouttext">Hi, I'm Abhay Srivastav, currently working in Samsung R&D Institute Delhi India, as Front End Developer / UI Developer. <br>Specialising in HTML5, CSS3, Javascript, jquery</div>
+	</div>
+	
+	<div class="contact">CONTACT ME<br>Phone : +919711081040<br>Email : abhaysrivastav007@gmail.com<p></p><span class="other-contacts"><a href="#"><img src="images/linkedin.png" /></a></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="other-contacts"><a href="#"><img src="images/fb.png"/></a></span></div> 
+	
+</div>
+<div class="footer">
+
+</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(
+function()
+{
+	$('li:not(:nth-child(1)').click(
+	function()
+	{
+	$("html, body").animate({ scrollTop: 1500 }, 1000);
+	});
+});
+</script>
+</html>
