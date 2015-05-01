@@ -3,9 +3,9 @@
 <style>
 body{overflow:hidden;}
 .info{width:1000px;hei/ght:200px;margin:auto;display:block;text-align:center;position:relative;top:40px;font-size:28px;color:rgb(107, 107, 107);}
-.tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;-webkit-transform-origin: 50% 50%;-webkit-transform: rotate(-45deg);}
+.tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;-webkit-transform-origin: 50% 50%;transform-origin: 50% 50%;-webkit-transform: rotate(-45deg);transform: rotate(-45deg);}
 .tag a{text-decoration:none;color:white;}
-.balloon{width:100px;height:50px;background:red;position:absolute;border-radius:50px 50px 0px 0px;-webkit-animation:moveup infinite linear}
+.balloon{width:100px;height:50px;background:red;position:absolute;border-radius:50px 50px 0px 0px;-webkit-animation:moveup infinite linear;animation:moveup infinite linear;}
 .resetballoon{width:100px;height:50px;background:red;position:absolute;border-radius:50px 50px 0px 0px;top:1000px}
 .lower-part{border-style:solid;border-width:80px 50px 0px 50px;border-color:red transparent transparent transparent;position:absolute;bottom:-80px;}
 @-webkit-keyframes moveup
@@ -14,19 +14,24 @@ body{overflow:hidden;}
 100%{top:-150px;}
 }
 
+@keyframes moveup
+{
+0%{top:1000px;}
+100%{top:-150px;}
+}
 </style>
 </head>
 <body>
 <div class="tag"><a  href="../index.html">CREATED BY ABHAY SRIVASTAV</a></div>
 <div class="info">Click on the Balloons to burst.</div>
-<div class="balloon" style="position:absolute;left:10%;-webkit-animation-duration:3s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
-<div class="balloon" style="position:absolute;left:20%;-webkit-animation-duration:5.5s;background:#FF3333;"><div class="lower-part" style="border-top-color:#FF3333;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
-<div class="balloon" style="position:absolute;left:24%;-webkit-animation-duration:9s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
-<div class="balloon" style="position:absolute;left:30%;-webkit-animation-duration:6s;background:#FF9999;"><div class="lower-part" style="border-top-color:#FF9999;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
-<div class="balloon" style="position:absolute;left:45%;-webkit-animation-duration:5s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
-<div class="balloon" style="position:absolute;left:55%;-webkit-animation-duration:4s;background:#FF9999;"><div class="lower-part" style="border-top-color:#FF9999;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
-<div class="balloon" style="position:absolute;left:70%;-webkit-animation-duration:2s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
-<div class="balloon" style="position:absolute;left:90%;-webkit-animation-duration:7s;background:#FF9999;"><div class="lower-part" style="border-top-color:#FF9999;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:10%;-webkit-animation-duration:3s;animation-duration:3s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:20%;-webkit-animation-duration:5.5s;animation-duration:5.5s;background:#FF3333;"><div class="lower-part" style="border-top-color:#FF3333;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:24%;-webkit-animation-duration:9s;animation-duration:9s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:30%;-webkit-animation-duration:6s;animation-duration:6s;background:#FF9999;"><div class="lower-part" style="border-top-color:#FF9999;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:45%;-webkit-animation-duration:5s;animation-duration:5s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:55%;-webkit-animation-duration:4s;animation-duration:4s;background:#FF9999;"><div class="lower-part" style="border-top-color:#FF9999;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:70%;-webkit-animation-duration:2s;animation-duration:2s;background:#FF9933;"><div class="lower-part" style="border-top-color:#FF9933;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
+<div class="balloon" style="position:absolute;left:90%;-webkit-animation-duration:7s;animation-duration:7s;background:#FF9999;"><div class="lower-part" style="border-top-color:#FF9999;"></div><svg width="100" height="100" style="bor/der:1px solid black;position:absolute;top:120px;z-index:-1;"><path d="M 50 0 C 70 15 70 15 50 40 S 50 80 50 100 " style="stroke:black;fill:none;"</svg></div>
 <svg id="burstballoon" width="100" height="91" style="bord/er:1px solid black;"><path id="burstpath" d="M 58.0645 0.8053 C 56.0484 1.208 33.871 26.5752 33.871 26.5752 L 10.0806 8.8584 L 25 39.8628 L 3.2258 80.1283 C 3.2258 80.1283 39.9194 56.7743 45.5645 59.9956 C 51.2097 63.2168 89.1129 88.1814 89.1129 88.1814 L 64.1129 43.4867 L 98.3871 19.3274 L 68.1452 16.5089 C 68.1452 16.5089 60.0806 0.4027 58.0645 0.8053 Z" stroke="#ff0000" stroke-width="4" fill="none"/></svg>
 </body>
 <script src="../../jquery.js"></script>
