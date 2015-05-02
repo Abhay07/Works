@@ -1,13 +1,13 @@
 body{margin:auto;font-family:Cambria;overflow:hidden;}
-#stage {width:100%;height:100%;position:relative;-webkit-transform-style:preserve-3d;-webkit-transform:translateZ(-600px);transition:all 2s;}
-#bigstage{width:100%;height:100%;-webkit-perspective:1000px;-webkit-perspective:50% 50%;margin:auto;}
+#stage {width:100%;height:100%;position:relative;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transform:translateZ(-600px);transform:translateZ(-600px);transition:all 2s;}
+#bigstage{width:100%;height:100%;-webkit-perspective:1000px;perspective:1000px;-webkit-perspective:50% 50%;perspective:50% 50%;margin:auto;}
 .face{width:100%;height:100%;border:1px solid black;position:absolute;}
 .face{background:#F35F55;}
 #front {-webkit-transf/orm:translateZ(90px)}
 #back {background-image:url('frontwall.jpg')}
-#left{right:100%;-webkit-transform:rotateY(90deg);-webkit-transform-origin:top right;background-image:url('leftwall.jpg');}
-#right{left:100%;-webkit-transform:rotateY(-90deg);-webkit-transform-origin:bottom left;background-image:url('rightwall.jpg');}
-#top{-webkit-transform:rotateX(90deg);height:2000px;-webkit-transform-origin:top right;background-image:url('wall.jpg');}
-#bottom{-webkit-transform:rotateX(-90deg);-webkit-transform-origin:bottom left;background-image:url('floor.jpg');background-color:white;}
-.header{width:100%;padding:20px;background:#DDE0CB;color:#373737;line-height:100%;text-align:center;font-size:32px;}
+#left{right:100%;-webkit-transform:rotateY(90deg);transform:rotateY(90deg);-webkit-transform-origin:top right;transform-origin:top right;background-image:url('leftwall.jpg');}
+#right{left:100%;-webkit-transform:rotateY(-90deg);transform:rotateY(-90deg);-webkit-transform-origin:bottom left;transform-origin:bottom left;background-image:url('rightwall.jpg');}
+#top{-webkit-transform:rotateX(90deg);transform:rotateX(90deg);height:2000px;-webkit-transform-origin:top right;background-image:url('wall.jpg');background-color:white;}
+#bottom{-webkit-transform:rotateX(-90deg);transform:rotateX(-90deg);-webkit-transform-origin:bottom left;transform-origin:bottom left;background-image:url('floor.jpg');background-color:white;border:none;}
+.header{width:100%;padding:20px;background:white;color:#373737;line-height:100%;text-align:center;font-size:32px;}
 .main-content{width:60%;height:90%;color:white;padding:20px;margin:auto;font-size:27px;}
