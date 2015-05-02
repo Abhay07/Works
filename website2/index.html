@@ -1,6 +1,6 @@
 <html>
 <head>
-<link rel="stylesheet" href="index.css" />
+<link rel="stylesheet" href="a.css" />
 </head>
 <script src="../jquery.js"></script>
 <body>
@@ -101,9 +101,9 @@ if(e.keyCode==39)
 if(i<2)
 {
 if(i==0)
-$('#stage').css('-webkit-transform','translateZ(-600px)');
+$('#stage').css('transform','translateZ(-600px)');
 else
-$('#stage').css('-webkit-transform','translateZ(428px) translateX(565px) rotateY(-87deg)');
+$('#stage').css('transform','translateZ(428px) translateX(500px) rotateY(-90deg)');
 i++;
 }
 }
@@ -114,9 +114,9 @@ if(e.keyCode==37)
 	if(i>0)
 	{
 	if(i==2)
-    $('#stage').css('-webkit-transform','translateZ(-600px)');
+    $('#stage').css('transform','translateZ(-600px)');
 	else
-	$('#stage').css('-webkit-transform','translateZ(428px) translateX(-565px) rotateY(87deg)');
+	$('#stage').css('transform','translateZ(428px) translateX(-500px) rotateY(90deg)');
 	i--;
 	}
 	
