@@ -37,9 +37,11 @@ body{background:#f26767;overflow:hidden;}
 </svg>
 </body>
 <script>
-var clickcount,mousex,mousey,dtring;
+var clickcount,mousex,mousey,dtring,anim="false";
 clickcount=0;
 $('svg').click(function(e)
+{
+if(anim=="false")
 {
 mousex=e.pageX-$(this).position().left;
 mousey=e.pageY-$(this).position().top;
@@ -59,7 +61,7 @@ dstring="T "+mousex+" "+mousey+" ";
 $('#path1').attr('d',$('#path1').attr('d')+dstring);
 }
 clickcount++;
-
+}
 });
 
 
@@ -67,11 +69,13 @@ $('#clear_btn').click(function()
 {$('#path1').attr('d','');
 clickcount=0;
 $('circle').html('');
+anim="false";
 })
 
 $('#anim_btn').click(function()
 {
 $('circle').html('<animateMotion dur="6s" repeatCount="indefinite" ><mpath xlink:href="#path1"/></animateMotion>');
+anim="true";
 })
 </script>
 </html>
