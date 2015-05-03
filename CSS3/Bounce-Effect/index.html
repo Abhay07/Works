@@ -1,17 +1,16 @@
 <html>
 <head>
 <script src="../../jquery.js"></script>
-<link rel="stylesheet" href="a.css"/>
 <style>
 .tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;-webkit-transform-origin: 50% 50%;transform-origin: 50% 50%;-webkit-transform: rotate(-45deg);transform: rotate(-45deg);}
 .tag a{text-decoration:none;color:white;}
-body{background:#f26767;}
+body{background:#f26767;overflow:hidden;}
 .container{width:25px;height:200px;margin:auto;bo/rder:solid 1px black;text-align:center;position:relative;top:40%;-webkit-transform-origin:50% 100%;-webkit-animation:ballanimation 5s 1;}
 .ball{background:url('ball.png');width:25px;height:25px;margin:auto;}
 .btn-container{position:absolute;top:5px;right:5px;z-index:1;}
 .btn{padding:10px;background:#04bcb5;color:white;border:none;box-shadow:0px 0px 2px 2px #555555;margin-left:20px;}
 .btn:hover{cursor:pointer;background:#037b77;}
-#ins{color:#037b77;margin:auto;width:65%;height:auto;text-align:center;font-family:Arial;font-size:25px;}
+#ins{color:white;margin:auto;margin-top:20px;width:65%;height:auto;text-align:center;font-family:Arial;font-size:25px;}
 
 @-webkit-keyframes ballanimation
 {
@@ -25,11 +24,11 @@ body{background:#f26767;}
 <body style="margin:auto">
 <div class="tag"><a  href="../index.html">CREATED BY ABHAY SRIVASTAV</a></div>
 <div class="btn-container">
-<button id="clear_btn">GENERATE PATTERN</button>
-<button id="anim_btn">CLEAR</button>
+<button id="anim_btn">Animate</button>
+<button id="clear_btn">Clear</button>
 </div>
-<div id="ins">Click on different points on screen and then click on button GENERATE PATTERN</div>
-<svg width="1910" height="900" style="border:solid 1px black;position:relative;left:0px;top:0px;z-index:0;">
+<div id="ins">Click on page to generate path, then click on ANIMATE button</div>
+<svg width="1910" height="900" style="position:absolute;left:0px;top:0px;z-index:0;">
 <path id="path1" d="" style="fill:none;stroke:black;" />
 <circle cx="0" cy="0" r="20" style="fill:white" >
 
