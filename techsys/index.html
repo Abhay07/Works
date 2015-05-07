@@ -27,32 +27,23 @@
 Transmission of services along with operational activities where the client has established trust and venture for long term businesses. <p></p>
 <h3>Back Office Outsourcing:</h3> Includes business functions<p4></p4>
 <h3>Front Office Outsourcing:</h3> Includes customer related services<p4></p4>
-
-
 <h4>Services:<h4><p></p>
 <h3>Customer Support Service:</h3><p2></p2>
 Providing assistance to clients and customers with 24/7 service that addresses queries and concerns via mail and through calls<p4></4>
-
 <h3>Technical Support Service:</h3><p2></p2>
 Providing 24/7 support services on Installation; trouble shooting; system issues and so on for clients.<p4></p4>
-
  
 <h3>Tele marketing Service:</h3><p2></p2>
 Play an active role in marketing by interacting with customers and the general public by increasing the sales for clients. Also, help in promoting new sales and cross selling to existing customers through online sales process.<p4></p4>
-
 <h3>IT Help desk Service:</h3><p2></p2>
 Provide all kinds of technical and system support for the clients and the employees for the proper functioning of the systems.<p4></p4>
-
 <h3>Insurance processing:</h3><p2></p2>
 Helps in claims processing; Policy maintenance; and Policy management. Also helps in getting new customers for Insurance based companies.<p4></p4>
-
 <h3>Data Entry and data processing:</h3><p2></p2>
 Data entry from papers; books; cards; websites; emails; catalogs; printed documents etc<p4></p4>
-
 <h3>Collections process:</h3><p2></p2>
 Helps the clients in collection process by collecting the money from the customers (Banking process) through the help of online entry by sending mails and receipts and through calls.
 </div>
-
 <div class="detail-content web-service">
 <h1 class="detail-content-head">Web Designing Services</h1><p3></p3>
 <h3>Readability:</h3><p2></p2>
@@ -62,8 +53,6 @@ Delivering fresh readable content to the users is the most important aspect of c
 <li>Using contrasting color schemes to attract users.</li>
 <li>Making use of the white space on the website to highlight the most important points and elements. Also providing adequate white space allows the website to look more clear and less cluttered.</li>
 <li>Eliminating the broken links by testing; so as to reduce confusions that bring a negative impression.</li></ul><p4></p4>
-
-
 <h3>Improve Navigation:</h3><p2></p2>
 Having a clear and clutter free navigation is the best thing to make the website friendly for the users and the visitors.
 <ul class="content-points">
@@ -72,10 +61,8 @@ Having a clear and clutter free navigation is the best thing to make the website
 <li>Using appropriate search bars to search for the information that has to be searched in the website.</li>
 <li>Avoiding the use of abbreviations to make the site more user friendly.</li>
 </ul><p4></p4>
-
 <h3>Technical Support Service</h3><p2></p2>
 Providing 24/7 support services on Installation; trouble shooting; system issues and so on for clients.<p4></p4>
-
  
 <h3>Speeding up the site</h3><p2></p2>
 Time management is the most important aspect to keep in mind while creating an effective website, as visitors need the job to be done right away.
@@ -84,7 +71,6 @@ Time management is the most important aspect to keep in mind while creating an e
 <li>Using the right files for images and videos to compress them accordingly to make the size of the website smaller.</li>
 <li>Ensuring the internal and external linking for the websites are appropriate and do not spoil user experience.</li>
 </ul><p4></p4>
-
 </div>
 <div class="detail-content technical-writing">
 <h1 class="detail-content-head">Technical Writing</h1><p3></p3>
@@ -102,95 +88,75 @@ Committing to Writing as  process<p3><p3>
 </body>
 <script src="js/jquery.js"></script>
 <script>
-/*
+
 $(document).ready(function()
 {
-var i=1;
-$('.read-btn').click(function(){$("html, body").animate({ scrollTop: 400 }, 1000);});
-
-$('.change-banner').click(function(e)
+var i=2;
+var changebanner = function(e)
 {
+clearInterval(autochangebanner_interval);
+console.log(e);
 $('.change-banner').removeClass('active');
-$(this).addClass('active');
+$('#'+e).addClass('active');
 $('.banner-content,.banner-img').addClass('faded');
-$('.detail-content').removeClass('active');
-
-if($(e.target).attr('id')=='change-banner-bpo')
+if(e=='change-banner-bpo')
 $('.detail-content.bpo').addClass('active');
-if($(e.target).attr('id')=='change-banner-web')
+if(e=='change-banner-web')
 $('.detail-content.web-service').addClass('active');
-if($(e.target).attr('id')=='change-banner-tech')
+if(e=='change-banner-tech')
 $('.detail-content.technical-writing').addClass('active');
-
 setTimeout(function()
 {
    
 	
-	if($(e.target).attr('id')=='change-banner-bpo')
+	if(e=='change-banner-bpo')
 	{
 	$('.banner-head').html('Contact Center Services');
 	$('.banner-subhead').html('Providing the Highest level of communication services.');
 	$('.banner-img').css('background-image','url("images/banner1.jpg")');
-	
+	i=2;
 	}
 	
-	if($(e.target).attr('id')=='change-banner-web')
+	if(e=='change-banner-web')
 	{
 	$('.banner-head').html('Web designing Services.');
 	$('.banner-subhead').html('A good website is a rewarding outcome of several important elements.');
 	$('.banner-img').css('background-image','url("images/banner2.jpg")');
+	i=3;
 	}
 	
-	if($(e.target).attr('id')=='change-banner-tech')
+	if(e=='change-banner-tech')
 	{
 	$('.banner-head').html('Technical Writing Services');
 	$('.banner-subhead').html('Helping the world to explore the art of art of content and communication.');
 	$('.banner-img').css('background-image','url("images/banner3.jpg")');
-	}
-	
-},1000);
-});
-setInterval(function()
-{
-
- $('.change-banner').removeClass('active');
-$(this).addClass('active');
-$('.banner-content,.banner-img').addClass('faded');
-$('.detail-content').removeClass('active');
-
-if($(e.target).attr('id')=='change-banner-bpo')
-$('.detail-content.bpo').addClass('active');
-if($(e.target).attr('id')=='change-banner-web')
-$('.detail-content.web-service').addClass('active');
-if($(e.target).attr('id')=='change-banner-tech')
-$('.detail-content.technical-writing').addClass('active');
-
-    
-	if(i==1)
-	{
-	$('.banner-head').html('Contact Center Services');
-	$('.banner-subhead').html('Providing the Highest level of communication services.');
-	$('.banner-img').css('background-image','url("images/banner1.jpg")');
-	}
-	
-	if(i==2)
-	{
-	$('.banner-head').html('Web designing Services.');
-	$('.banner-subhead').html('A good website is a rewarding outcome of several important elements.');
-	$('.banner-img').css('background-image','url("images/banner2.jpg")');
-	}
-	
-	if(i==3)
-	{
-	$('.banner-head').html('Technical Writing Services');
-	$('.banner-subhead').html('Helping the world to explore the art of art of content and communication.');
-	$('.banner-img').css('background-image','url("images/banner3.jpg")');
+	i=1;
 	}
 	$('.banner-content,.banner-img').removeClass('faded');
-	i++;
-	if(i==4)
-	i=1;
-},8000);
-});*/
+	autochangebanner_interval = setInterval(autochangebanner_fun
+,5000);
+},1000);
+};
+
+$('.change-banner').click(function(){changebanner($(this).attr('id'));});
+
+var autochangebanner_interval = setInterval(autochangebanner_fun
+,5000);
+
+function autochangebanner_fun()
+{
+if(i==1)
+changebanner('change-banner-bpo');
+if(i==2)
+changebanner('change-banner-web');
+if(i==3)
+changebanner('change-banner-tech');
+i++;
+if(i==4)
+i=1;
+console.log(i);
+}
+
+});
 </script>
 </html>
