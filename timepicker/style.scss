@@ -1,0 +1,32 @@
+@mixin border-radius($radius:10px){
+-webkit-border-radius:$radius;
+-moz-border-radius:$radius;
+border-radius:$radius;
+}
+
+.timepicker-container{
+width:300px;
+height:350px;
+background:gray;
+position:absolute;
+margin:auto;
+top:0;
+bottom:0;
+left:0;
+right:0;
+@include border-radius;
+}
+
+.dial-container{
+width:100%;
+height:300px;
+background:black;
+@include border-radius;
+}
+
+.dials{
+width:20px;
+height:20px;
+border:1px solid white;
+border-radius:50%;
+}
