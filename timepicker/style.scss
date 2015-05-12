@@ -29,4 +29,17 @@ width:20px;
 height:20px;
 border:1px solid white;
 border-radius:50%;
+position:absolute;
+left:0;
+top:0;
+}
+
+
+@for $i from 0 through 11{
+@if $i<7{
+.dials.dial-#{$i}{top:20px+240px/6*$i;}
+}
+@else{
+.dials.dial-#{$i}{top:20px+(240px/6)*(11-$i);}
+}
 }
