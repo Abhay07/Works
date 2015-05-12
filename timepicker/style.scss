@@ -34,12 +34,35 @@ left:0;
 top:0;
 }
 
+.mode-container{
+height:50px;
+width:100%;
+text-align:center;
+line-height:50px;
+font-size:30px;
+color:white;
+position:absolute;
+bottom:0px;
+}
+
 
 @for $i from 0 through 11{
-@if $i<7{
-.dials.dial-#{$i}{top:20px+240px/6*$i;}
+.dials.dial-#{$i}{left:140px+130*cos($i*30*pi()/180-(pi()/2));top:140px+130*sin($i*30*pi()/180- (pi()/2));}
+.dials.dial-#{$i}:before{content:'#{$i*5}';color:white;display:block;font-size:14px;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;text-align:center;line-height:20px;}
+input#hour-mode:checked~.mode-container label#hour-mode-label{color:red;}
+input#minute-mode:checked~.mode-container label#minute-mode-label{color:red;}
+@if $i==0
+{
+input#hour-mode:checked~.dials.dial-#{$i}:before{content:'12';}
 }
-@else{
-.dials.dial-#{$i}{top:20px+(240px/6)*(11-$i);}
+@else
+{
+input#hour-mode:checked~.dials.dial-#{$i}:before{content:'#{$i}';}
 }
+input#minute-mode:checked~input~.dials.dial-#{$i}:before{content:'#{$i*5}';}
 }
+
+
+
+input{visibility:hidden;}
+label{cursor:pointer;}
