@@ -1,3 +1,10 @@
+@mixin triangle($t,$r,$b,$l){
+border-width:$t $r $b $l; 
+border-color:transparent;
+border-bottom-color:white;
+}
+
+
 @mixin border-radius($radius:10px){
 -webkit-border-radius:$radius;
 -moz-border-radius:$radius;
@@ -32,6 +39,7 @@ border-radius:50%;
 position:absolute;
 left:0;
 top:0;
+color:white;
 }
 
 .mode-container{
@@ -45,10 +53,16 @@ position:absolute;
 bottom:0px;
 }
 
+#hour-mode-label:before{content:'9'};
+#minute-mode-label:before{content:'10';}
+
+.minute-hand{position:absolute;display:block;width:0px;height:0px;border:1px solid white;margin:auto;left:0;right:0;top:50px;@include triangle(0px,2px,100px,2px);transform-origin:bottom center;transition:all 1s;transform:rotate(60deg);}
+
+.hour-hand{position:absolute;display:block;width:0px;height:0px;border:1px solid white;margin:auto;left:0;right:0;transform-origin:bottom center;transition:all 1s;@include triangle(0px,4px,60px,4px);top:90px;transform:none;transform:rotate(270deg);}
 
 @for $i from 0 through 11{
 .dials.dial-#{$i}{left:140px+130*cos($i*30*pi()/180-(pi()/2));top:140px+130*sin($i*30*pi()/180- (pi()/2));}
-.dials.dial-#{$i}:before{content:'#{$i*5}';color:white;display:block;font-size:14px;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;text-align:center;line-height:20px;}
+.dials.dial-#{$i}:before{content:'#{$i*5}';display:block;font-size:14px;position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;text-align:center;line-height:20px;}
 input#hour-mode:checked~.mode-container label#hour-mode-label{color:red;}
 input#minute-mode:checked~.mode-container label#minute-mode-label{color:red;}
 @if $i==0
@@ -62,6 +76,14 @@ input#hour-mode:checked~.dials.dial-#{$i}:before{content:'#{$i}';}
 input#minute-mode:checked~input~.dials.dial-#{$i}:before{content:'#{$i*5}';}
 }
 
+@for $i from 0 through 11{
+#input-dial-#{$i}:checked~label.dial-#{$i}{background:white;color:black;}
+input#hour-mode:checked~#input-dial-#{$i}:checked~.mode-container label#hour-mode-label:before{content:'#{$i}';}
+input#minute-mode:checked~#input-dial-#{$i}:checked~.mode-container label#minute-mode-label:before{content:'#{$i*5}';}
+//input#minute-mode:checked~#input-dial-#{$i}:checked~.minute-hand{transform:rotate($i*30deg);}
+//input#minute-mode:checked~#input-dial-#{$i}:checked~.hour-hand{transform:rotate($i*30deg/12);}
+//input#hour-mode:checked~#input-dial-#{$i}:checked~.hour-hand{transform:rotate($i*30deg);}
+}
 
 
 input{visibility:hidden;}
