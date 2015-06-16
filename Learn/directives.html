@@ -1,0 +1,20 @@
+<html>
+<body ng-app="myApp">
+<div colored-text></div>
+<input ng-model="colors" type="text" value=" " />
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+angular.module('myApp',[])
+.controller('myCtrl',['$scope',function($scope)
+{
+$scope.colors="red";
+}])
+.directive('coloredText',function(){
+	return{
+	restrict:'AE',
+	template:'<p style="color:{{color}}">Hellow World</p>'
+	};
+});
+</script>
+</html>
