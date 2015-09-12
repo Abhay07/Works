@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Youtube Hide",
+  "description": "This extension hides any youtube video.",
+  "version": "1.0",
+
+  "page_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions":["tabs","activeTab"],
+  "background":{
+  "scripts":["background.js"]
+  }
+}
