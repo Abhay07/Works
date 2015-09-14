@@ -1,0 +1,27 @@
+<html>
+<head>
+ <link rel="stylesheet" href="angular-material.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+<meta name="viewport" content="initial-scale=1" />
+</head>
+<body ng-app="buttonsDemo1" ng-controller="AppCtrl">
+<md-button class="md-raised md-cornered"> Accept </md-button>
+<md-button class="md-fab" aria-label="Eat cake">
+  <md-icon md-svg-src="img/icons/cake.svg"></md-icon>
+</md-button>
+</body>
+<script src="angular.min.js"></script>
+<script src="angular-animate.min.js"></script>
+<script src="angular-aria.min.js"></script>
+<!-- Angular Material Javascript now available via Google CDN; version 0.10 used here -->
+<script src="angular-material.min.js"></script>
+<script>
+angular.module('buttonsDemo1', ['ngMaterial'])
+.controller('AppCtrl', function($scope) {
+  $scope.title1 = 'Button';
+  $scope.title4 = 'Warn';
+  $scope.isDisabled = true;
+  $scope.googleUrl = 'http://google.com';
+});
+</script>
+</html>
