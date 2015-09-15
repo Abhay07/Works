@@ -43,7 +43,7 @@ function generatepattern(x,y,q,col)
 
 function initiatepattern(p)
 {
-document.getElementsByClassName('inst')[0].html="Click again to generate next pattern";
+document.getElementsByClassName('inst')[0].innerHTML="Click again to generate next pattern";
 n++;
 var e = document.createElement('canvas');
 e.setAttribute('id','mycanvas['+n+']');
