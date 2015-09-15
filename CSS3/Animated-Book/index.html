@@ -6,17 +6,16 @@
 .tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;transform-origin: 50% 50%;transform: rotate(-45deg);}
 .tag a{text-decoration:none;color:white;}
 .wrapper{width:900px;height:600px;bord/er:1px solid black;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
-.cover{width:450px;height:590px;background:#FF3333;position:absolute;right:4;top:0;border:7px dotted white;transform-origin:0% 50%;transform:rotateY(10deg);transition:transform 1.5s,background 2s;z-index:0;perspective:0px;}
+.cover{width:450px;height:590px;background:#FF315F;position:absolute;right:4;top:0;border:7px dotted white;transform-origin:0% 50%;transform:rotateY(10deg);transition:transform 1.5s,background 2s;z-index:0;perspective:0px;}
 .cover:before{content:'MY BOOK';font-family:Arial;color:white;font-size:70px;position:relative;top:8%;left:15%;transition:opacity 0.75s;opacity:1;}
 .first-page,.second-page,.third-page{width:464px;height:600px;background:white;position:absolute;right:0;top:0;transform:rotateY(10deg);transform-origin:0% 50%;transition:transform 2s;perspective:0px;box-shadow:inset 10px 0px 40px -20px black;border:1px solid #cccccc;border-left:none;}
-.third-page{box-shadow:20px 0px 8px 0px black;}
+.third-page{box-shadow:10px 5px 10px 0px #C5C5C5;}
 .first-page:before,.second-page:before,.third-page:before{content:'';width:464px;height:1px;position:absolute;box-shadow:0px 40px #CCCCCC,0px 80px #CCCCCC,0px 120px #CCCCCC,0px 160px #CCCCCC,0px 200px #CCCCCC,0px 240px #CCCCCC,0px 280px #CCCCCC,0px 320px #CCCCCC,0px 360px #CCCCCC,0px 400px #CCCCCC,0px 440px #CCCCCC,0px 480px #CCCCCC,0px 520px #CCCCCC,0px 560px #CCCCCC;}
 .info{width:1000px;hei/ght:200px;margin:auto;display:block;text-align:center;position:relative;top:40px;font-size:28px;color:rgb(107, 107, 107);}
 </style>
 </head>
 <body>
 <div class="info">Click on the pages to turn them.</div>
-<div class="tag"><a href="http://www.abhaysrivastav.org">CREATED BY ABHAY SRIVASTAV</a></div>
 <div class="wrapper">
 <input id="control" type="checkbox" style="visibility:hidden;"/>
 <div class="fourth-page"></div>
@@ -42,7 +41,7 @@ $('#turn_btn_forward').click(function()
 {
 if(i==0)
 {
-$('.cover').css({transform:'rotateY(180deg) perspective(800px)',background:'#FFA6A6'});
+$('.cover').css({transform:'rotateY(-180deg) perspective(800px)',background:'#FFA6A6'});
 }
 else if(i==1)
 {
