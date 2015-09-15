@@ -1,6 +1,7 @@
+
 <html>
 <head>
-<script src="../../jquery.js"></script>
+<script src="jquery.js"></script>
 <style>
 .tag{ border: 2px solid white;position: absolute;padding: 10px 60px;top: 90px;left: -80px;background: black;color: white;box-shadow: 0px 5px 5px black;transform-origin: 50% 50%;transform: rotate(-45deg);}
 .tag a{text-decoration:none;color:white;}
@@ -47,20 +48,20 @@ else if(i==1)
 {
 $('.cover,.second-page').css('zIndex','0');
 $('.first-page').css('zIndex','1');
-$('.first-page').css({transform:'rotateY(180deg) perspective(800px)'});
+$('.first-page').css({transform:'rotateY(-180deg) perspective(800px)'});
 }
 else if(i==2)
 {
 $('.first-page').css('zIndex','1');
 $('.second-page').css('zIndex','2');
-$('.second-page').css({transform:'rotateY(180deg) perspective(800px)'});
+$('.second-page').css({transform:'rotateY(-180deg) perspective(800px)'});
 }
 else
 {
 $('.second-page').css('transition','none');
 $('.second-page').css({'transform':'rotateY(10deg)','perspective':'0px'});
 setTimeout(function(){$('.second-page').css('transition','transform 2s');
-$('.second-page').css({'transform':'rotateY(180deg) perspective(800px)'});},50);
+$('.second-page').css({'transform':'rotateY(-180deg) perspective(800px)'});},50);
 console.log(i);
 }
 i++
@@ -91,7 +92,7 @@ else
 $('.first-page,.cover-page').css('zIndex','1');
 $('.second-page').css('zIndex','2');
 $('.second-page').css('transition','none');
-$('.second-page').css({'transform':'rotateY(180deg) perspective(800px)'});
+$('.second-page').css({'transform':'rotateY(-180deg) perspective(800px)'});
 setTimeout(function(){$('.second-page').css('transition','transform 2s');
 $('.second-page').css({'transform':'rotateY(10deg)'});},50);
 console.log(i);
