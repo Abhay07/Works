@@ -11,7 +11,6 @@ body{background:#f26767;overflow:hidden;}
 .btn{padding:10px;background:#04bcb5;color:white;border:none;box-shadow:0px 0px 2px 2px #555555;margin-left:20px;}
 .btn:hover{cursor:pointer;background:#037b77;}
 #ins{color:white;margin:auto;margin-top:20px;width:65%;height:auto;text-align:center;font-family:Arial;font-size:25px;}
-
 @-webkit-keyframes ballanimation
 {
 0%{-webkit-transform:rotate(-90deg);}
@@ -19,12 +18,21 @@ body{background:#f26767;overflow:hidden;}
 51%{-webkit-transform:translate(375px) rotate(-90deg);}
 100%{-webkit-transform:translate(375px) rotate(90deg);}
 }
+
+button{
+padding: 10px;
+background: white;
+color: #696666;
+border: none;
+box-shadow: 0px 0px 2px 2px #555555;
+margin-left: 20px;
+}
 </style>
 </head>
 <body style="margin:auto">
 <div class="btn-container">
-<button id="anim_btn">Animate</button>
-<button id="clear_btn">Clear</button>
+<button id="anim_btn">ANIMATE</button>
+<button id="clear_btn">CLEAR</button>
 </div>
 <div id="ins">Click on page to generate path, then click on ANIMATE button</div>
 <svg width="1910" height="900" style="position:absolute;left:0px;top:0px;z-index:0;">
@@ -62,17 +70,17 @@ $('#path1').attr('d',$('#path1').attr('d')+dstring);
 clickcount++;
 }
 });
-
-
 $('#clear_btn').click(function()
-{$('#path1').attr('d','');
+{
+$('#ins').html("Click on page to generate path, then click on ANIMATE button");
+$('#path1').attr('d','');
 clickcount=0;
 $('circle').html('');
 anim="false";
 })
-
 $('#anim_btn').click(function()
 {
+$('#ins').html("Click on clear to create new path");
 $('circle').html('<animateMotion dur="6s" repeatCount="indefinite" ><mpath xlink:href="#path1"/></animateMotion>');
 anim="true";
 })
