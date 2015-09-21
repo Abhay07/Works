@@ -1,0 +1,224 @@
+<html>
+<head>
+<script src="C:/Users/ABHAY/Desktop/Learn/keylogger extension/jquery.js"></script>
+<style>
+.tag {
+    border: 2px solid white;
+    position: absolute;
+    padding: 10px 60px;
+    top: 90px;
+    left: -80px;
+    background: black;
+    color: white;
+    box-shadow: 0px 5px 5px black;
+    transform-origin: 50% 50%;
+    transform: rotate(-45deg);
+}
+.tag a {
+    text-decoration: none;
+    color: white;
+}
+.wrapper {
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.cover {
+    width: 450px;
+    height: 590px;
+    background: #FF315F;
+    position: absolute;
+    right: 4;
+    top: 0;
+    border: 7px dotted white;
+    transform-origin: 0% 50%;
+    transform: rotateY(10deg);
+    transition: all 1.5s,background 2s,z-index 2s step-end;
+    perspective: 0px;
+	z-index:1;
+}
+.cover:before {
+    content: 'MY BOOK';
+    font-family: Arial;
+    color: white;
+    font-size: 70px;
+    position: relative;
+    top: 8%;
+    left: 15%;
+    transition: opacity 0.75s;
+    opacity: 1;
+}
+.first-page,.second-page,.third-page {
+    width: 464px;
+    height: 600px;
+    background: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotateY(10deg);
+    transform-origin: 0% 50%;
+    transition: transform 2s,z-index 2s step-end;
+    perspective: 0px;
+    box-shadow: inset 10px 0px 40px -20px black;
+    border: 1px solid #cccccc;
+    border-left: none;
+	z-index:1;
+}
+
+.svgContainer{
+width: 464px;
+height: 600px;
+position: absolute;
+right: 0;
+top: 0;
+border:1px solid black;
+z-index:2;
+}
+
+
+.third-page {
+    box-shadow: 10px 5px 10px 0px #C5C5C5;
+}
+.first-page:before,.second-page:before,.third-page:before {
+    content: '';
+    width: 464px;
+    height: 1px;
+    position: absolute;
+    box-shadow: 0px 40px #CCCCCC,0px 80px #CCCCCC,0px 120px #CCCCCC,0px 160px #CCCCCC,0px 200px #CCCCCC,0px 240px #CCCCCC,0px 280px #CCCCCC,0px 320px #CCCCCC,0px 360px #CCCCCC,0px 400px #CCCCCC,0px 440px #CCCCCC,0px 480px #CCCCCC,0px 520px #CCCCCC,0px 560px #CCCCCC;
+}
+.info {
+    width: 1000px;
+    margin: auto;
+    display: block;
+    text-align: center;
+    position: relative;
+    top: 40px;
+    font-size: 28px;
+    color: rgb(107, 107, 107);
+}
+
+.turn-forward{
+transform:rotateY(-180deg) perspective(800px);
+z-index:0;
+}
+
+.turn-backward{
+transition:all 2s,z-index 2s step-start;
+}
+
+.cover.turn-forward{
+background-color:#FFA6A6;
+z-index:-1;
+}
+
+.stopAnim{
+transition:none;
+}
+
+.hiddenElem{
+visibility:hidden;
+}
+</style>
+</head>
+<body>
+<div class="info">Click on the pages to turn them.</div>
+<div class="wrapper">
+<input id="control" type="checkbox" style="visibility:hidden;"/>
+<div class="third-page"></div>
+<div class="second-page"></div>
+<div class="first-page"></div>
+<div class="cover">
+
+</div>
+<div class="svgContainer">
+<svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewBox="0 0 581 98">
+<path style="fill:none;stroke:deeppink;stroke-width=2" d="M100 100 L200 120 L300 100 L400 120"/>
+</svg>
+</div>
+<a id="turn_btn_forward" href="#" style="width:450px;height:600px;background:transparent;position:absolute;right:0;top:0;border:none;z-index:999"></a>
+<a id="turn_btn_back" href="#" style="width:450px;height:600px;background:transparent;position:absolute;left:0;top:0;border:none;z-index:999"></a>
+</div>
+
+</body>
+<script>
+$(document).ready
+(
+function(){
+
+var path = $('svg path')[0];
+var length = path.getTotalLength();
+path.style.transition = path.style.WebkitTransition ="none";
+path.style.strokeDasharray = length+' '+length;
+path.style.strokeDashoffset = length;
+path.getBoundingClientRect();
+var state = path.style.strokeDashoffset;
+path.style.transition=path.style.WebkitTransition = "stroke-dashoffset 2s ease-in-out";
+
+$('.wrapper').css('transform','scale('+0.001*$(document).height()+')');
+$(window).resize(function(){$('.wrapper').css('transform','scale('+0.001*$(document).height()+')')});
+var i=0;
+$('#turn_btn_forward').click(function()
+{
+     $('.svgContainer').removeClass('hiddenElem').addClass('hiddenElem');
+	if(i==0)
+	{
+		$('.cover').removeClass('turn-backward').addClass('turn-forward');
+	}
+	else if(i==1)
+	{
+		$('.first-page').removeClass('turn-backward').addClass('turn-forward');
+	}
+	else
+	{
+		$('.second-page').removeClass('turn-backward').removeClass('stopAnim').addClass('turn-forward');
+		setTimeout(function(){
+		$('.second-page').addClass('stopAnim');
+		$('.second-page').removeClass('turn-forward');
+		},2000);
+	}
+	i++
+	setTimeout(function(){drawFun();},2000);
+});
+$('#turn_btn_back').click(function()
+{
+	$('.svgContainer').removeClass('hiddenElem').addClass('hiddenElem');;
+	if(i==0)
+	{
+		console.log('no page to turn');
+	}
+	else if(i==1)
+	{
+		$('.cover').addClass('turn-backward').removeClass('turn-forward');
+		i--;
+	}
+	else if(i==2)
+	{
+		$('.first-page').addClass('turn-backward').removeClass('turn-forward');
+		i--;
+	}
+	else
+	{
+		$('.second-page').addClass('turn-forward');
+		setTimeout(function(){
+		$('.second-page').removeClass('stopAnim').addClass('turn-backward').removeClass('turn-forward');},0);
+		i--;
+	}
+});
+
+function drawFun(){ 
+$('.svgContainer').removeClass('hiddenElem');
+path.style.transition=path.style.WebkitTransition = "none";
+path.style.strokeDashoffset = length;
+setTimeout(function(){
+path.style.transition=path.style.WebkitTransition = "stroke-dashoffset 2s ease-in-out";
+path.style.strokeDashoffset = '0px';
+},2);
+}
+});
+</script>
+</html>
