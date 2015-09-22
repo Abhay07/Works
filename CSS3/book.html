@@ -242,16 +242,17 @@ function startDrawing(){
     if(i==0)
 	paths[m].style.stroke='white';
 	var length = paths[m].getTotalLength();
+	console.log(length);
 	paths[m].setAttribute('class','drawPath');
 	paths[m].setAttribute('fill','none');
 	paths[m].style.strokeDashoffset=paths[m].style.strokeDasharray=length;
 	paths[m].getBoundingClientRect();
-	paths[m].setAttribute('class','drawPath animate');
+	paths[m].style.transition=paths[m].style.WebkitTransition="stroke-dashoffset "+0.4*length/120+"s ease-in-out";
 	paths[m].getBoundingClientRect();
 	paths[m].style.strokeDashoffset="0px";
 	m++;
 	if(m<paths.length)
-	setTimeout(function(){startDrawing();},1000);
+	setTimeout(function(){startDrawing();},400*length/120);
 }
 
 startDrawing();
