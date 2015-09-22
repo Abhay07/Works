@@ -122,6 +122,10 @@ transition:none;
 .drawPath.animate{
 transition:stroke-dashoffset 2s ease-in-out;
 }
+
+.turn.disable{
+display:none;
+}
 </style>
 </head>
 <body>
@@ -139,77 +143,90 @@ transition:stroke-dashoffset 2s ease-in-out;
 <path style="fill:none;stroke:deeppink;stroke-width=2" d="M100 100 L200 120 L300 100 L400 120" class="drawPath"/>
 </svg>
 </div>
-<a id="turn_btn_forward" href="#" style="width:450px;height:600px;background:transparent;position:absolute;right:0;top:0;border:none;z-index:999"></a>
-<a id="turn_btn_back" href="#" style="width:450px;height:600px;background:transparent;position:absolute;left:0;top:0;border:none;z-index:999"></a>
+<a id="turn_btn_forward" class="turn" href="#" style="width:450px;height:600px;background:transparent;position:absolute;right:0;top:0;border:none;z-index:999"></a>
+<a id="turn_btn_back" class="turn" href="#" style="width:450px;height:600px;background:transparent;position:absolute;left:0;top:0;border:none;z-index:999"></a>
 </div>
 
 </body>
 <script>
-$(document).ready
-(
-function(){
-
+$(document).ready(function(){
+var i=0,status="";
 var path = $('svg path');
 var length = path[0].getTotalLength();
+
 path.attr('class','drawPath');
 path.css({'stroke-dashoffset':length,'stroke-dasharray':length});
 path[0].getBoundingClientRect();
 path.attr('class','drawPath animate');
 
+drawFun(i);
+
 $('.wrapper').css('transform','scale('+0.001*$(document).height()+')');
 $(window).resize(function(){$('.wrapper').css('transform','scale('+0.001*$(document).height()+')')});
-var i=0;
-$('#turn_btn_forward').click(function()
-{
-     $('.svgContainer').removeClass('hiddenElem').addClass('hiddenElem');
-	if(i==0)
-	{
-		$('.cover').removeClass('turn-backward').addClass('turn-forward');
+
+
+
+function turnForward()
+	 {
+	     $('.turn').removeClass('disable').addClass('disable');
+		 $('.svgContainer').removeClass('hiddenElem').addClass('hiddenElem');
+		if(i==0)
+		{
+			$('.cover').removeClass('turn-backward').addClass('turn-forward');
+		}
+		else if(i==1)
+		{
+			$('.first-page').removeClass('turn-backward').addClass('turn-forward');
+		}
+		else
+		{
+			$('.second-page').removeClass('turn-backward').removeClass('stopAnim').addClass('turn-forward');
+			setTimeout(function(){
+			$('.second-page').addClass('stopAnim').removeClass('turn-forward');
+			},2000);
+		}
+		i++;
+		setTimeout(function(){ $('.turn').removeClass('disable');},2000);
+		setTimeout(function(){drawFun(i);},500);
 	}
-	else if(i==1)
-	{
-		$('.first-page').removeClass('turn-backward').addClass('turn-forward');
+	
+function turnBackward(){
+		$('.turn').removeClass('disable').addClass('disable');
+		$('.svgContainer').removeClass('hiddenElem').addClass('hiddenElem');;
+		if(i==0)
+		{
+			console.log('no page to turn');
+		}
+		else if(i==1)
+		{
+			$('.cover').addClass('turn-backward').removeClass('turn-forward');
+			i--;
+		}
+		else if(i==2)
+		{
+			$('.first-page').addClass('turn-backward').removeClass('turn-forward');
+			i--;
+		}
+		else
+		{
+			$('.second-page').removeClass('stopAnim').addClass('stopAnim turn-forward');
+			setTimeout(function(){
+			$('.second-page').removeClass('stopAnim').addClass('turn-backward').removeClass('turn-forward');},5);
+			i--;
+		}
+		setTimeout(function(){ $('.turn').removeClass('disable');},2000);
+		setTimeout(function(){drawFun(i);},1000);
 	}
-	else
-	{
-		$('.second-page').removeClass('turn-backward').removeClass('stopAnim').addClass('turn-forward');
-		setTimeout(function(){
-		$('.second-page').addClass('stopAnim');
-		$('.second-page').removeClass('turn-forward');
-		},2000);
-	}
-	i++
-	setTimeout(function(){drawFun(i);},500);
-});
-$('#turn_btn_back').click(function()
-{
-	$('.svgContainer').removeClass('hiddenElem').addClass('hiddenElem');;
-	if(i==0)
-	{
-		console.log('no page to turn');
-	}
-	else if(i==1)
-	{
-		$('.cover').addClass('turn-backward').removeClass('turn-forward');
-		i--;
-	}
-	else if(i==2)
-	{
-		$('.first-page').addClass('turn-backward').removeClass('turn-forward');
-		i--;
-	}
-	else
-	{
-		$('.second-page').addClass('turn-forward');
-		setTimeout(function(){
-		$('.second-page').removeClass('stopAnim').addClass('turn-backward').removeClass('turn-forward');},0);
-		i--;
-	}
-	setTimeout(function(){drawFun(i);},1000);
-});
+$('#turn_btn_forward').click(function(){turnForward();});
+$('#turn_btn_back').click(function(){turnBackward();});
+
 function drawFun(a){ 
+path.css('stroke','deeppink');
 if(i==0)
+{
+path.css('stroke','white');
 path.attr('d','M18.183,229.662c0,0,114.789-159.859,150-116.901 s59.86,162.675,105.634,147.183c45.774-15.493,63.381-182.971,100-154.514s-104.93,270.007-20.423,264.373 s123.24-104.226,116.197-154.93S381.564,72.62,424.521,55.718S421,7.126,353.395,22.62S211.141,142.338,218.183,83.887');
+}
 else if(i%5==4)
 path.attr('d','M18.183,229.662c0,0,114.789-159.859,150-116.901 s59.86,162.675,105.634,147.183c45.774-15.493,63.381-182.971,100-154.514s-104.93,270.007-20.423,264.373 s123.24-104.226,116.197-154.93S381.564,72.62,424.521,55.718S421,7.126,353.395,22.62S211.141,142.338,218.183,83.887');
 else if(i%5==3)
@@ -225,7 +242,6 @@ path.attr('d','m64.5,200.5c2,0 62,-66 92,-50c30,16 28,97 99,70c71,-27 20,-98 72,
 
 $('.svgContainer').removeClass('hiddenElem');
 var length = path[0].getTotalLength();
-console.log(length);
 path.attr('class','drawPath');
 path.css({'stroke-dashoffset':length,'stroke-dasharray':length});
 path[0].getBoundingClientRect();
