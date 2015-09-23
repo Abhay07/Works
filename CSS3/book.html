@@ -1,6 +1,6 @@
 <html>
 <head>
-<script src="CSS clock/jquery.js"></script>
+<script src="Call relative/jquery.js"></script>
 <style>
 .tag {
     border: 2px solid white;
@@ -202,37 +202,37 @@ function turnBackward(){
 	}
 $('#turn_btn_forward').click(function(){turnForward();});
 $('#turn_btn_back').click(function(){turnBackward();});
-
 function drawFun(a){
 	if(a==0)
-	{$('.svgContainer').html('').load('Untitled-1.svg',function(){svgLoaded();});}
+	{$('.svgContainer').html('').load('Grumpy/cat.svg',function(){svgLoaded();});}
 	else if(a%5==4)
-	$('.svgContainer').html('').load('Untitled-2.svg',function(){svgLoaded();});
+	$('.svgContainer').html('').load('Grumpy/mouse.svg',function(){svgLoaded();});
 	else if(a%5==3)
-	$('.svgContainer').load('Untitled-3.svg',function(){svgLoaded();});
+	$('.svgContainer').load('Grumpy/phone.svg',function(){svgLoaded();});
 	else if(a%5==2)
-	$('.svgContainer').load('Untitled-4.svg',function(){svgLoaded();});
+	$('.svgContainer').load('Grumpy/bottle.svg',function(){svgLoaded();});
 	else if(a%5==1)
-	$('.svgContainer').load('Untitled-2.svg',function(){svgLoaded();});
+	$('.svgContainer').load('Grumpy/ball.svg',function(){svgLoaded();});
 	else if(a%5==0)
-	$('.svgContainer').load('Untitled-6.svg',function(){svgLoaded();});
+	$('.svgContainer').load('Grumpy/cat.svg',function(){svgLoaded();});
 	else
-	$('.svgContainer').load('Untitled-7.svg',function(){svgLoaded();});
+	$('.svgContainer').load('Grumpy/cat.svg',function(){svgLoaded();});
 }
-
 function svgLoaded(){
 	$('.svgContainer').removeClass('hiddenElem');
 	var paths = $('svg path');
-	console.log(paths);
+	var length;
+	for(var n=0;n<paths.length;n++)
+	{
+		length = paths[n].getTotalLength();
+		paths[n].style.strokeDashoffset=paths[n].style.strokeDasharray=length;
+	}
 	var m=0;
-
 	function startDrawing(){
-		var length = paths[m].getTotalLength();
+		length = paths[m].getTotalLength();
 		console.log(length);
 		paths[m].setAttribute('class','drawPath');
 		paths[m].setAttribute('fill','none');
-		paths[m].style.strokeWidth="2";
-		paths[m].style.strokeDashoffset=paths[m].style.strokeDasharray=length;
 		paths[m].getBoundingClientRect();
 		paths[m].style.transition=paths[m].style.WebkitTransition="stroke-dashoffset "+0.3*length/120+"s ease-in-out";
 		paths[m].getBoundingClientRect();
