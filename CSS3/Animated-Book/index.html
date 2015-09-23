@@ -95,10 +95,30 @@ z-index:2;
     text-align: center;
     position: relative;
     top: 40px;
-    font-size: 28px;
+    font-size: 25px;
     color:#173957;
 	font-family:Arial;
 }
+
+.turn{
+width:450px;
+height:600px;
+background:transparent;
+position:absolute;
+right:0;
+top:0;
+border:none;
+z-index:999;
+}
+
+#turn_btn_forward{
+right:0;
+}
+
+#turn_btn_back{
+left:0;
+}
+
 .turn-forward{
 transform:rotateY(-180deg) perspective(800px);
 z-index:0;
@@ -139,7 +159,7 @@ display:none;
 <div class="svgContainer">
 
 </div>
-<a id="turn_btn_forward" class="turn" href="#" style="width:450px;height:600px;background:transparent;position:absolute;right:0;top:0;border:none;z-index:999"></a>
+<a id="turn_btn_forward" class="turn" href="#" style=""></a>
 <a id="turn_btn_back" class="turn" href="#" style="width:450px;height:600px;background:transparent;position:absolute;left:0;top:0;border:none;z-index:999"></a>
 </div>
 
@@ -205,19 +225,19 @@ $('#turn_btn_forward').click(function(){turnForward();});
 $('#turn_btn_back').click(function(){turnBackward();});
 function drawFun(a){
 	if(a==0)
-	{$('.svgContainer').html('').load('Grumpy/cat.svg',function(){svgLoaded();});}
+	{$('.svgContainer').html('').load('cat.svg',function(){svgLoaded();});}
 	else if(a%5==4)
-	$('.svgContainer').html('').load('Grumpy/mouse.svg',function(){svgLoaded();});
+	$('.svgContainer').html('').load('mouse.svg',function(){svgLoaded();});
 	else if(a%5==3)
-	$('.svgContainer').load('Grumpy/phone.svg',function(){svgLoaded();});
+	$('.svgContainer').load('phone.svg',function(){svgLoaded();});
 	else if(a%5==2)
-	$('.svgContainer').load('Grumpy/bottle.svg',function(){svgLoaded();});
+	$('.svgContainer').load('bottle.svg',function(){svgLoaded();});
 	else if(a%5==1)
-	$('.svgContainer').load('Grumpy/ball.svg',function(){svgLoaded();});
+	$('.svgContainer').load('ball.svg',function(){svgLoaded();});
 	else if(a%5==0)
-	$('.svgContainer').load('Grumpy/cat.svg',function(){svgLoaded();});
+	$('.svgContainer').load('cat.svg',function(){svgLoaded();});
 	else
-	$('.svgContainer').load('Grumpy/cat.svg',function(){svgLoaded();});
+	$('.svgContainer').load('cat.svg',function(){svgLoaded();});
 }
 function svgLoaded(){
 	$('.svgContainer').removeClass('hiddenElem');
