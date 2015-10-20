@@ -24,10 +24,12 @@
 	 function getRandomColor(){
 	 return 'hsl('+ 360*Math.random() +',100%,50%)';
 	 }
-	  
+	 
+	var can = document.getElementById('myCanvas');
+	var ctx = can.getContext('2d');
+	
 	 function drawCanvas(arr){
-	 var can = document.getElementById('myCanvas');
-	 var ctx = can.getContext('2d');
+	 ctx.clearRect(0,0,600,600);
 	 for(var i=0,j=arr.length;i<j;i++){
 		 ctx.beginPath();
 		 ctx.moveTo(300,300);
@@ -88,13 +90,10 @@
 		link:function(scope,elem,attr){
 				scope.$watch("sectionVal",function(newValue,oldValue){
 				
+					scope.valuesOfDivisions[attr.index].value=newValue;
 					
-					
-					console.log(' Total % is '+(scope.getValuesSum()));
-					
-					if((scope.getValuesSum()+newValue)<=99)
+					if(scope.getValuesSum()<=100)
 					{
-					 scope.valuesOfDivisions[attr.index].value=newValue;
 					 scope.draw(scope.valuesOfDivisions);
 					}
 			});
