@@ -1,0 +1,53 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body ng-app="myApp" ng-controller="myController" ng-click="closeColor($event);">
+
+	<div class="rightContain">
+		<button ng-model="addDivBtn" ng-click="addDivisions()">Add divisions</button>
+		<div class="chartDivisions" ng-repeat="i in numberOfDivisions track by $index" chart-divisions data-index={{$index}}></div>
+	</div>
+	
+	<canvas width="600" height="600" style="border:1px solid black;" id="myCanvas"></canvas>
+	
+	<img src="color_wheel.png" id="color_wheel"/>
+	
+</body>
+<script src="angular.min.js"></script>
+ <script>
+ angular.module('myApp',[])
+ .factory('pieChartServices',function(){
+     var numberOfDivisions = [];
+	 return{
+		addDivisions:function(){
+		numberOfDivisions.push(1);
+		},
+		getDivisions:function(){
+		return numberOfDivisions;
+		}
+	 };
+ })
+ .controller('myController',['$scope','pieChartServices',function($scope,pieChartServices){
+	$scope.numberOfDivisions=pieChartServices.getDivisions();
+	$scope.addDivisions = pieChartServices.addDivisions;
+ }])
+ .directive('chartDivisions',function(){
+	 return{
+		scope:true,
+		template:'<div class="colorPicker" style="background-color:{{color}}"></div><input type="number" min="0" max="100" value="20" ng-model="sectionVal"/>',
+		controller:function($scope){
+		$scope.sectionVal = 20;
+		$scope.$watch("$scope.sectionVal",function(newValue,oldValue){
+			console.log(newValue);
+			});
+		},
+		link:function(scope,elem,attr){
+			
+		}
+	 };
+ });
+
+ </script>
+</html>
