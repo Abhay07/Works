@@ -4,10 +4,10 @@
 
 </head>
 <body ng-app="myApp" ng-controller="myController" ng-click="closeColor($event);">
-
+    <input type="number" ng-model="testModel">
 	<div class="rightContain">
-		<button ng-model="addDivBtn" ng-click="addDivisions()">Add divisions</button>
-		<div class="chartDivisions" ng-repeat="i in numberOfDivisions track by $index" chart-divisions data-index={{$index}}></div>
+		<button ng-model="addDivBtn" ng-click="addDivisions(20)">Add divisions</button>
+		<div class="chartDivisions" ng-repeat="i in valuesOfDivisions track by $index" chart-divisions data-index={{$index}}></div>
 	</div>
 	
 	<canvas width="600" height="600" style="border:1px solid black;" id="myCanvas"></canvas>
@@ -15,23 +15,68 @@
 	<img src="color_wheel.png" id="color_wheel"/>
 	
 </body>
-<script src="angular.min.js"></script>
+<script src="../angular.min.js"></script>
  <script>
  angular.module('myApp',[])
- .factory('pieChartServices',function(){
-     var numberOfDivisions = [];
+ .factory('pieChartServices',['$document',function($document){
+     var valuesOfDivisions = [];
+	 
+	 function getRandomColor(){
+	 return 'hsl('+ 360*Math.random() +',100%,50%)';
+	 }
+	  
+	 function drawCanvas(arr){
+	 var can = document.getElementById('myCanvas');
+	 var ctx = can.getContext('2d');
+	 for(var i=0,j=arr.length;i<j;i++){
+		 ctx.beginPath();
+		 ctx.moveTo(300,300);
+		 startAngle = 0;
+		 for(var m=0;m<i;m++)
+		 {
+		 startAngle+=3.6*arr[m].value*Math.PI/180
+		 }
+		 var endAngle = startAngle+(3.6*arr[i].value*Math.PI/180);
+		 ctx.arc(300,300,300,startAngle,endAngle)
+		 ctx.moveTo(300,300);
+		 ctx.closePath();
+		 ctx.fillStyle=arr[i].color;
+		 ctx.fill();
+		 }
+	 }
+	 
+	 function getValuesSum(){
+	     var totalValues=0;
+		 for(var n=0,o=valuesOfDivisions.length;n<o;n++)
+		 {
+		  totalValues += valuesOfDivisions[n].value;
+		 }
+		 return totalValues;
+	 }
+	 
 	 return{
-		addDivisions:function(){
-		numberOfDivisions.push(1);
+		addDivisions:function(a){
+		   if((getValuesSum()+a)<=100)
+			{
+			valuesOfDivisions.push({value:a,color:getRandomColor()});
+			drawCanvas(valuesOfDivisions);
+			}			
+		   else
+		   return false;
+			
 		},
 		getDivisions:function(){
-		return numberOfDivisions;
-		}
+		return valuesOfDivisions;
+		},
+		drawCanvas:drawCanvas,
+		getValuesSum:getValuesSum
 	 };
- })
+ }])
  .controller('myController',['$scope','pieChartServices',function($scope,pieChartServices){
-	$scope.numberOfDivisions=pieChartServices.getDivisions();
+	$scope.valuesOfDivisions=pieChartServices.getDivisions();
 	$scope.addDivisions = pieChartServices.addDivisions;
+	$scope.draw = pieChartServices.drawCanvas;
+	$scope.getValuesSum = pieChartServices.getValuesSum;
  }])
  .directive('chartDivisions',function(){
 	 return{
@@ -39,15 +84,22 @@
 		template:'<div class="colorPicker" style="background-color:{{color}}"></div><input type="number" min="0" max="100" value="20" ng-model="sectionVal"/>',
 		controller:function($scope){
 		$scope.sectionVal = 20;
-		$scope.$watch("$scope.sectionVal",function(newValue,oldValue){
-			console.log(newValue);
-			});
 		},
 		link:function(scope,elem,attr){
-			
+				scope.$watch("sectionVal",function(newValue,oldValue){
+				
+					
+					
+					console.log(' Total % is '+(scope.getValuesSum()));
+					
+					if((scope.getValuesSum()+newValue)<=99)
+					{
+					 scope.valuesOfDivisions[attr.index].value=newValue;
+					 scope.draw(scope.valuesOfDivisions);
+					}
+			});
 		}
 	 };
  });
-
  </script>
 </html>
