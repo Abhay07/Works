@@ -4,9 +4,8 @@
 
 </head>
 <body ng-app="myApp" ng-controller="myController" ng-click="closeColor($event);">
-    <input type="number" ng-model="testModel">
 	<div class="rightContain">
-		<button ng-model="addDivBtn" ng-click="addDivisions(20)">Add divisions</button>
+		<button ng-model="addDivBtn" ng-click="addDivisions(defaultVal)">Add divisions</button><input type="number" ng-model="defaultVal"/>
 		<div class="chartDivisions" ng-repeat="i in valuesOfDivisions track by $index" chart-divisions data-index={{$index}}></div>
 	</div>
 	
@@ -27,23 +26,27 @@
 	 
 	var can = document.getElementById('myCanvas');
 	var ctx = can.getContext('2d');
+	ctx.font="15px Arial";
 	
 	 function drawCanvas(arr){
 	 ctx.clearRect(0,0,600,600);
 	 for(var i=0,j=arr.length;i<j;i++){
 		 ctx.beginPath();
 		 ctx.moveTo(300,300);
-		 startAngle = 0;
+		 var startAngle = 0;
+		 var angleDuration = 3.6*arr[i].value*Math.PI/180;
 		 for(var m=0;m<i;m++)
 		 {
 		 startAngle+=3.6*arr[m].value*Math.PI/180
 		 }
-		 var endAngle = startAngle+(3.6*arr[i].value*Math.PI/180);
+		 var endAngle = startAngle+angleDuration;
 		 ctx.arc(300,300,300,startAngle,endAngle)
 		 ctx.moveTo(300,300);
 		 ctx.closePath();
 		 ctx.fillStyle=arr[i].color;
 		 ctx.fill();
+		 ctx.fillStyle="white";
+		 ctx.fillText(arr[i].value+'%',300+150*Math.cos(startAngle + angleDuration/2),300+150*Math.sin(startAngle + angleDuration/2));
 		 }
 	 }
 	 
@@ -79,15 +82,19 @@
 	$scope.addDivisions = pieChartServices.addDivisions;
 	$scope.draw = pieChartServices.drawCanvas;
 	$scope.getValuesSum = pieChartServices.getValuesSum;
+	$scope.defaultVal = 20;
  }])
  .directive('chartDivisions',function(){
 	 return{
 		scope:true,
-		template:'<div class="colorPicker" style="background-color:{{color}}"></div><input type="number" min="0" max="100" value="20" ng-model="sectionVal"/>',
-		controller:function($scope){
-		$scope.sectionVal = 20;
-		},
+		template:'<div class="colorPicker" style="background-color:{{color}}"></div><input type="number" min="0" max="100" value="20" ng-model="sectionVal"/><span ng-click="removeDivisions()">&times;</span>',
 		link:function(scope,elem,attr){
+				scope.sectionVal = scope.defaultVal;
+				scope.color=scope.valuesOfDivisions[attr.index].color;
+				scope.removeDivisions = function(){
+				scope.valuesOfDivisions.splice([attr.index],1);
+				scope.draw(scope.valuesOfDivisions);
+				};
 				scope.$watch("sectionVal",function(newValue,oldValue){
 				
 					scope.valuesOfDivisions[attr.index].value=newValue;
@@ -95,6 +102,9 @@
 					if(scope.getValuesSum()<=100)
 					{
 					 scope.draw(scope.valuesOfDivisions);
+					}
+					else{
+					 scope.sectionVal = oldValue;
 					}
 			});
 		}
